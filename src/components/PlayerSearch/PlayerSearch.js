@@ -3,7 +3,8 @@ import React from 'react';
 
 const PlayerSearch = () => (
   <div >
-    PlayerSearch Component
+    <input type="text" name="Input user name" id="" />
+    <label >PlayerSearch Component</label>
   </div>
 );
 
