@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import PlayerSearch from "./components/PlayerSearch/PlayerSearch";
+import App from "./App";
 
-function Greeting(){
-  return <PlayerSearch></PlayerSearch>
+function Main(){
+  return <App></App>
 }
 
-ReactDom.render(<Greeting/>, document.getElementById('root'));
+ReactDom.render(<Main/>, document.getElementById('root'));
