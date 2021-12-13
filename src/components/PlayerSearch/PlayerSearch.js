@@ -3,8 +3,11 @@ import React from 'react';
 
 const PlayerSearch = () => (
   <div >
-    <input type="text" name="Input user name" id="" />
-    <label >PlayerSearch Component</label>
+    <form>
+          <input type="text" name="Username" placeholder="Username" />
+          <button type="button">Search</button>
+          {/* <button type="button" onClick={this.handleLogin}>Login</button> */}
+    </form>
   </div>
 );
 
