@@ -12,8 +12,8 @@ export default class FormPlayerSearch extends React.Component {
   render() {
     return  (
       <div>
-        <input type="text" value={this.state.username} onChange={this.handleInputChanged.bind(this)}/>
-        <button onClick={this.handleButtonClicked.bind(this)}>
+        <input type="text" value={this.state.username} onChange={this.handleInputChanged.bind(this)} onKeyDown={this.handleKeyDown.bind(this)}/>
+        <button onClick={this.handleSubmit.bind(this)}>
           Submit
         </button>
       </div>
@@ -26,7 +26,8 @@ export default class FormPlayerSearch extends React.Component {
     });
   }
 
-  handleButtonClicked() {
+
+  handleSubmit() {
     var username = this.state.username;
 
     fetch('https://api.sleeper.app/v1/user/' + username)
@@ -36,6 +37,12 @@ export default class FormPlayerSearch extends React.Component {
         console.log(data)
     })
     .catch(console.log)
+  }
+
+    handleKeyDown(event) {
+    if (event.key === 'Enter') {
+      this.handleSubmit();
+    }
   }
 
 }
