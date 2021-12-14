@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import FormPlayerSearch from "./components/FormPlayerSearch/FormPlayerSearch";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 class App extends Component {
     state = {
@@ -8,7 +9,9 @@ class App extends Component {
 
     render() {
     return (
-        <FormPlayerSearch></FormPlayerSearch>
+        <Router>
+            <FormPlayerSearch></FormPlayerSearch>
+        </Router>
     );
     }
 
