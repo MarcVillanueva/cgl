@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import PlayerSearch from "./components/PlayerSearch/PlayerSearch";
+import FormPlayerSearch from "./components/FormPlayerSearch/FormPlayerSearch";
 
 class App extends Component {
     state = {
@@ -19,7 +19,7 @@ class App extends Component {
 
     render() {
     return (
-        <PlayerSearch></PlayerSearch>
+        <FormPlayerSearch></FormPlayerSearch>
     );
     }
 
