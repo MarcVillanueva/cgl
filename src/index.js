@@ -8,7 +8,7 @@ const ReactRouterSetup = () => {
   return <Router>
     <Routes>
       <Route exact path = '/' element={<App />} />
-      <Route path = '/leagues' element={<Leagues />} />
+      <Route path = '/leagues/:userId' element={<Leagues />} />
     </Routes>
   </Router>
 }

@@ -1,6 +1,7 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 
-export default class FormPlayerSearch extends React.Component {
+class FormPlayerSearch extends React.Component {
   constructor(props) {
     super(props);
 
@@ -10,13 +11,13 @@ export default class FormPlayerSearch extends React.Component {
   }
 
   render() {
-    return  (
-      <div>
-        <input type="text" value={this.state.username} onChange={this.handleInputChanged.bind(this)} onKeyDown={this.handleKeyDown.bind(this)}/>
-        <button onClick={this.handleSubmit.bind(this)}>
-          Submit
-        </button>
-      </div>
+      return  (
+        <div>
+          <input type="text" value={this.state.username} onChange={this.handleInputChanged.bind(this)} onKeyDown={this.handleKeyDown.bind(this)}/>
+          <button onClick={this.handleSubmit.bind(this)}>
+            Submit
+          </button>
+        </div>
     );
   }
 
@@ -27,22 +28,33 @@ export default class FormPlayerSearch extends React.Component {
   }
 
 
-  handleSubmit() {
+  async handleSubmit() {
     var username = this.state.username;
-
-    fetch('https://api.sleeper.app/v1/user/' + username)
-    .then(res => res.json())
-    .then((data) => {
-        this.setState({ playerInfo: data })
-        console.log(data)
-    })
-    .catch(console.log)
+    var userInformation = await fetchUserInformation(username);
+        
+    // TODO: Create new component for PlayerInformation to put this stuff in. Then add link to Leagues component in the PlayerInformation
+    this.props.navigation("/leagues/" + userInformation.user_id, {userId: userInformation.user_id});
   }
 
-    handleKeyDown(event) {
+  handleKeyDown(event) {
     if (event.key === 'Enter') {
       this.handleSubmit();
     }
   }
+  
+}
 
+//TODO: Look into using promise chain here
+async function fetchUserInformation(username) {
+    const response = await fetch('https://api.sleeper.app/v1/user/' + username);
+    const userInformation = await response.json();
+    return userInformation;
+}
+
+// Wrapping FormPlayerSearch class in a function component to use useNavigate hook. 
+// TODO: Might need to update this code. See https://reactnavigation.org/docs/use-navigation/ 
+export default function(props) {
+  const navigation = useNavigate();
+
+  return <FormPlayerSearch {...props} navigation={navigation} />;
 }
