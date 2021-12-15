@@ -33,7 +33,7 @@ class FormPlayerSearch extends React.Component {
     var userInformation = await fetchUserInformation(username);
         
     // TODO: Create new component for PlayerInformation to put this stuff in. Then add link to Leagues component in the PlayerInformation
-    this.props.navigation("/leagues/" + userInformation.user_id, {userId: userInformation.user_id});
+    this.props.navigation("/user/" + userInformation.user_id, {userId: userInformation.user_id});
   }
 
   handleKeyDown(event) {
