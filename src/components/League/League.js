@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './League.module.css';
 
 const League = () => (
-  <div className={styles.League}>
+  <div >
     League Component
   </div>
 );
