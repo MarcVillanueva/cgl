@@ -5,10 +5,14 @@ class UserInformation extends Component {
     render() {
     return (
         <div className="div">
-            <h1>UserInformation component</h1>
+            <div>
+                <h1>UserInformation component</h1>
+            </div>
             {/* TODO: Add LeagueList component here */}
             {/* Need to pass in list of leagues for specific user */}
-            <League></League>
+            <div>
+                <League></League>    
+            </div>
         </div>
     );
     }
