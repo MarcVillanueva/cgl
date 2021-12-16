@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import LeagueList from './components/LeagueList/LeagueList'
-import League from './components/League/League'
 import { useNavigate, useLocation } from "react-router-dom";
 
 class UserInformation extends Component {
