@@ -3,6 +3,10 @@ import LeagueList from './components/LeagueList/LeagueList'
 import { useNavigate, useLocation } from "react-router-dom";
 
 class UserInformation extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {leagueListInformation: ""}
+    }
     render() {
     return (
         <div className="div">
@@ -12,6 +16,7 @@ class UserInformation extends Component {
             {/* TODO: Add LeagueList component here */}
             {/* Need to pass in list of leagues for specific user */}
             <div>
+                {/* Pass in array of League names, Avatar Src urls */}
                 <LeagueList></LeagueList>
             </div>
         </div>
@@ -19,8 +24,8 @@ class UserInformation extends Component {
     }
 
     async componentWillMount() {
-        var leagueListInformation = await fetchLeagueList(this.props.location.state.userId);
-        console.log(leagueListInformation);
+        this.state.leagueListInformation = await fetchLeagueList(this.props.location.state.userId);
+        console.log(this.state.leagueListInformation);
     }
 }
 

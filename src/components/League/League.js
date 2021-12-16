@@ -8,9 +8,9 @@ const League = (props) => (
     <label >League name</label>
     <br />
     <img 
-    src="https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
+    src="https://sleepercdn.com/avatars/thumbs/1407b3c042b1344c9500c2534e02c1ad"
     alt="new"
-    className="photo"
+    className="avatar"
     />
     {console.log("Logging props in League")}
     {console.log(props)}
