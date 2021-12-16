@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import League from './components/League/League'
+import { useNavigate, useLocation } from "react-router-dom";
 
 class UserInformation extends Component {
     render() {
@@ -17,9 +18,23 @@ class UserInformation extends Component {
     );
     }
 
-    componentDidMount() {
-        console.log("UserInformation component mounted!");
+    async componentDidMount() {
+        var leagueListInformation = await fetchLeagueList(this.props.location.state.userId);
+        console.log(leagueListInformation);
     }
+    
 }
 
-export default UserInformation
+//TODO: Look into using promise chain here
+async function fetchLeagueList(userId) {
+    const response = await fetch('https://api.sleeper.app/v1/user/' + userId + '/leagues/nfl/2021');
+    const leagueListInformation = await response.json();
+    return leagueListInformation;
+}
+
+export default function(props) {
+  const navigation = useNavigate();
+  const location = useLocation();
+
+  return <UserInformation {...props} navigation={navigation} location={ location }/>;
+}

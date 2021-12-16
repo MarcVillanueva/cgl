@@ -8,7 +8,7 @@ const ReactRouterSetup = () => {
   return <Router>
     <Routes>
       <Route exact path = '/' element={<App />} />
-      <Route path = '/user/:userId' element={<UserInformation />} />
+      <Route path = '/user/:username' element={<UserInformation />} />
     </Routes>
   </Router>
 }
