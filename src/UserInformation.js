@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import LeagueList from './components/LeagueList/LeagueList'
 import League from './components/League/League'
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -12,7 +13,7 @@ class UserInformation extends Component {
             {/* TODO: Add LeagueList component here */}
             {/* Need to pass in list of leagues for specific user */}
             <div>
-                <League></League>    
+                <LeagueList></LeagueList>
             </div>
         </div>
     );

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import "./League.css";
 
-const League = () => (
+const League = (props) => (
   <div >
     {/* TODO: Programmatically populate League name */}
     <label >League name</label>
@@ -12,6 +12,8 @@ const League = () => (
     alt="new"
     className="photo"
     />
+    {console.log("Logging props in League")}
+    {console.log(props)}
   </div>
 );
 
