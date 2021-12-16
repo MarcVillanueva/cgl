@@ -24,7 +24,9 @@ class UserInformation extends Component {
     }
 
     async componentWillMount() {
-        this.state.leagueListInformation = await fetchLeagueList(this.props.location.state.userId);
+        this.setState({
+            leagueListInformation: await fetchLeagueList(this.props.location.state.userId),
+         });
         console.log(this.state.leagueListInformation);
     }
 }
