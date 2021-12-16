@@ -18,11 +18,10 @@ class UserInformation extends Component {
     );
     }
 
-    async componentDidMount() {
+    async componentWillMount() {
         var leagueListInformation = await fetchLeagueList(this.props.location.state.userId);
         console.log(leagueListInformation);
     }
-    
 }
 
 //TODO: Look into using promise chain here
