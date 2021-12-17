@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import League from '../League/League';
 
 const LeagueList = (props) => {
