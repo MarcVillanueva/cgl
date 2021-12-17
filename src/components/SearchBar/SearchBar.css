@@ -1,0 +1,43 @@
+.navbar-container {
+  padding: 10px;
+  border-bottom: 1px solid rgb(220, 220, 200);
+}
+
+.navbar {
+  width: 960px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-section {
+  font-family: Brush Script MT, Brush Script Std;
+  font-size: 24px;
+}
+
+.searchbar {
+  display: auto;
+  border-radius: 3px;
+  border: 1px solid rgb(200, 200, 150);
+  background-color: rgb(245, 245, 245);
+}
+
+input:focus {
+  outline: none;
+}
+
+.searchbar-placeholder {
+  display: flex;
+  align-items: center;
+  color: rbg(150, 150, 150);
+  position: absolute;
+  font-size: 12px;
+  top: 10px;
+  padding: 8px;
+  cursor: text;
+}
+
+#searchbar-placeholder-icon {
+  font-size: 14px;
+}
