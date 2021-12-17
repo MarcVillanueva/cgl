@@ -5,7 +5,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 class UserInformation extends Component {
     constructor(props) {
         super(props);
-        this.state = {leagueListInformation: ""}
+        this.state = {leagueListInformation: null}
     }
     render() {
     return (
@@ -13,11 +13,8 @@ class UserInformation extends Component {
             <div>
                 <h1>UserInformation component</h1>
             </div>
-            {/* TODO: Add LeagueList component here */}
-            {/* Need to pass in list of leagues for specific user */}
             <div>
-                {/* Pass in array of League names, Avatar Src urls */}
-                <LeagueList></LeagueList>
+                {this.state.leagueListInformation != null ? <LeagueList leagues={this.state.leagueListInformation} />: null}
             </div>
         </div>
     );
