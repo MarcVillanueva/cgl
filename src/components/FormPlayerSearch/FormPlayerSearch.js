@@ -30,8 +30,7 @@ class FormPlayerSearch extends React.Component {
 
   async handleSubmit() {
     var username = this.state.username;
-    var userInformation = await fetchUserInformation(username);
-    this.props.navigation("/user/" + username, { state: {userId: userInformation.user_id} });
+    this.props.navigation("/user/" + username);
   }
 
   handleKeyDown(event) {
@@ -41,14 +40,6 @@ class FormPlayerSearch extends React.Component {
   }
   
 }
-
-//TODO: Look into using promise chain here
-async function fetchUserInformation(username) {
-    const response = await fetch('https://api.sleeper.app/v1/user/' + username);
-    const userInformation = await response.json();
-    return userInformation;
-}
-
 // Wrapping FormPlayerSearch class in a function component to use useNavigate hook. 
 // TODO: Might need to update this code. See https://reactnavigation.org/docs/use-navigation/ 
 export default function(props) {
