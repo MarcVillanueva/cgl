@@ -1,6 +1,8 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom"
 import "./FormPlayerSearch.css"
+import SearchIcon from '@material-ui/icons/Search'
+
 class FormPlayerSearch extends React.Component {
   constructor(props) {
     super(props);
@@ -17,7 +19,11 @@ class FormPlayerSearch extends React.Component {
             <div className="navbar">
               <div className="logo-section">Sleeper</div>
               <div className="searchbar-section">
-                <input type="text" placeholder ="Search" value={this.state.username} onChange={this.handleInputChanged.bind(this)} onKeyDown={this.handleKeyDown.bind(this)}/>
+                <input className="searchbar" type="text" value={this.state.username} onChange={this.handleInputChanged.bind(this)} onKeyDown={this.handleKeyDown.bind(this)}/>
+                <div className="searchbar-placeholder">
+                  <SearchIcon id="Searchbar-placeholder-icon"></SearchIcon>
+                  <span>Search</span>
+                </div>
               </div>
               <div className="actions-section">Actions</div>
             </div>
