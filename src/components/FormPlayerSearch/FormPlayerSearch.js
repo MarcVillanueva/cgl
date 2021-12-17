@@ -1,6 +1,6 @@
 import React from 'react'
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom"
+import "./FormPlayerSearch.css"
 class FormPlayerSearch extends React.Component {
   constructor(props) {
     super(props);
@@ -13,10 +13,15 @@ class FormPlayerSearch extends React.Component {
   render() {
       return  (
         <div>
-          <input type="text" value={this.state.username} onChange={this.handleInputChanged.bind(this)} onKeyDown={this.handleKeyDown.bind(this)}/>
-          <button onClick={this.handleSubmit.bind(this)}>
-            Submit
-          </button>
+          <div className="navbar-container">
+            <div className="navbar">
+              <div className="logo-section">Sleeper</div>
+              <div className="searchbar-section">
+                <input type="text" placeholder ="Search" value={this.state.username} onChange={this.handleInputChanged.bind(this)} onKeyDown={this.handleKeyDown.bind(this)}/>
+              </div>
+              <div className="actions-section">Actions</div>
+            </div>
+          </div>
         </div>
     );
   }
@@ -30,7 +35,7 @@ class FormPlayerSearch extends React.Component {
 
   async handleSubmit() {
     var username = this.state.username;
-    this.props.navigation("/user/" + username);
+    this.props.navigation("/user/" + username + "/");
   }
 
   handleKeyDown(event) {

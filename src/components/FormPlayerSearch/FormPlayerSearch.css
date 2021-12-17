@@ -1,0 +1,17 @@
+.navbar-container {
+  padding: 10px;
+  border-bottom: 1px solid rgb(220, 220, 200);
+}
+
+.navbar {
+  width: 960px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-section {
+  font-family: Brush Script MT, Brush Script Std;
+  font-size: 24px;
+}
