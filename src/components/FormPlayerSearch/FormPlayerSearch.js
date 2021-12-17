@@ -20,12 +20,17 @@ class FormPlayerSearch extends React.Component {
               <div className="logo-section">Sleeper</div>
               <div className="searchbar-section">
                 <input id="searchbar" type="text" value={this.state.username} onChange={this.handleInputChanged.bind(this)} onKeyDown={this.handleKeyDown.bind(this)}/>
+                {
+                  this.state.username === "" && (
+                
                 <div className="searchbar-placeholder" onClick={(e) => {
                   document.getElementById("searchbar")?.focus()
                   }}>
                   <SearchIcon id="Searchbar-placeholder-icon"></SearchIcon>
                   <span>Search</span>
                 </div>
+                  )
+                }
               </div>
               <div className="actions-section">Actions</div>
             </div>
@@ -35,6 +40,7 @@ class FormPlayerSearch extends React.Component {
   }
 
   handleInputChanged(event) {
+    
     this.setState({
       username: event.target.value
     });
