@@ -23,6 +23,10 @@
   background-color: rgb(245, 245, 245);
 }
 
+input:focus {
+  outline: none;
+}
+
 .searchbar-placeholder {
   display: flex;
   align-items: center;
