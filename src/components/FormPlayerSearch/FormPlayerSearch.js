@@ -31,10 +31,6 @@ class FormPlayerSearch extends React.Component {
   async handleSubmit() {
     var username = this.state.username;
     var userInformation = await fetchUserInformation(username);
-        
-    // TODO: Create new component for PlayerInformation to put this stuff in. Then add link to Leagues component in the PlayerInformation
-    // TODO: Append user name instead of user id to URL
-    console.log("Username: " + userInformation.user_id)
     this.props.navigation("/user/" + username, { state: {userId: userInformation.user_id} });
   }
 
