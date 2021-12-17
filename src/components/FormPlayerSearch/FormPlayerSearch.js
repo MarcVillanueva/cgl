@@ -19,7 +19,7 @@ class FormPlayerSearch extends React.Component {
             <div className="navbar">
               <div className="logo-section">Sleeper</div>
               <div className="searchbar-section">
-                <input id="searchbar" type="text" value={this.state.username} onChange={this.handleInputChanged.bind(this)} onKeyDown={this.handleKeyDown.bind(this)}/>
+                <input id="searchbar" type="text" autoComplete="off" value={this.state.username} onChange={this.handleInputChanged.bind(this)} onKeyDown={this.handleKeyDown.bind(this)}/>
                 {
                   this.state.username === "" && (
                 
