@@ -19,8 +19,10 @@ class FormPlayerSearch extends React.Component {
             <div className="navbar">
               <div className="logo-section">Sleeper</div>
               <div className="searchbar-section">
-                <input className="searchbar" type="text" value={this.state.username} onChange={this.handleInputChanged.bind(this)} onKeyDown={this.handleKeyDown.bind(this)}/>
-                <div className="searchbar-placeholder">
+                <input id="searchbar" type="text" value={this.state.username} onChange={this.handleInputChanged.bind(this)} onKeyDown={this.handleKeyDown.bind(this)}/>
+                <div className="searchbar-placeholder" onClick={(e) => {
+                  document.getElementById("searchbar")?.focus()
+                  }}>
                   <SearchIcon id="Searchbar-placeholder-icon"></SearchIcon>
                   <span>Search</span>
                 </div>
