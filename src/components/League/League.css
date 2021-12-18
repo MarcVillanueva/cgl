@@ -1,4 +1,17 @@
+.league {
+  background-color: antiquewhite;
+  width: 10vw;
+  max-width: 300px;
+  gap: 0.25rem;
+  display: grid;
+}
+
 .avatar {
-  height: 80px;
-  width: 80px;
+  margin: 0 auto;
+  padding-bottom: 10px;
+}
+
+.league-name {
+  margin: 0 auto;
+  padding-top: 10px;
 }

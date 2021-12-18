@@ -1,9 +1,10 @@
 import React from 'react';
 import League from '../League/League';
+import "./LeagueList.css";
 
 const LeagueList = (props) => {
   return(
-    <div>
+    <div className="league-list">
       {props.leagues.map((league) => (
           <League
             name={league.name}

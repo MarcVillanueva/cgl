@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import LeagueList from './components/LeagueList/LeagueList'
-import { useNavigate, useLocation, useParams } from "react-router-dom";
+import { useNavigate, useLocation, useParams } from "react-router-dom"
 import SearchBar from './components/SearchBar/SearchBar'
+import './styles/UserInformation.css'
 
 class UserInformation extends Component {
     constructor(props) {
@@ -17,7 +18,7 @@ class UserInformation extends Component {
         <div className="div">
             <SearchBar navigation={this.props.navigation}></SearchBar>
             <div>
-                {this.state.leagueListInformation != null ? <LeagueList leagues={this.state.leagueListInformation} />: null}
+                {this.state.leagueListInformation != null ? <LeagueList className="league-list" leagues={this.state.leagueListInformation} />: null}
             </div>
         </div>
     );
