@@ -6,15 +6,18 @@ import UserInformation from './UserInformation'
 import SearchBar from './components/SearchBar/SearchBar'
 
 const ReactRouterSetup = () => {
-  return <Router>
-    <Routes>
-      <Route exact path = '/' element={<App />} />
-      <Route path = '/user/:username' element={<UserInformation />} />
-    </Routes>
-  </Router>
+  return (
+  <div>
+    <Router>
+      <Routes>
+        <Route exact path = '/' element={<App />} />
+        <Route path = '/user/:username' element={<UserInformation />} />
+      </Routes>
+    </Router>
+  </div>
+  )
 }
 
-ReactDom.render(<SearchBar/>, document.getElementById('navbar'));
 ReactDom.render(<ReactRouterSetup/>, document.getElementById('root'));
 
 export default ReactRouterSetup

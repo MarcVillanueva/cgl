@@ -1,18 +1,21 @@
 import React, {Component} from 'react'
 import LeagueList from './components/LeagueList/LeagueList'
 import { useNavigate, useLocation, useParams } from "react-router-dom";
+import SearchBar from './components/SearchBar/SearchBar'
 
 class UserInformation extends Component {
     constructor(props) {
         super(props);
-        this.state = {leagueListInformation: null}
+        this.state = {
+            leagueListInformation: null,
+            username: ""
+        }
     }
+    
     render() {
     return (
         <div className="div">
-            <div>
-                <h1>UserInformation component</h1>
-            </div>
+            <SearchBar navigation={this.props.navigation}></SearchBar>
             <div>
                 {this.state.leagueListInformation != null ? <LeagueList leagues={this.state.leagueListInformation} />: null}
             </div>
@@ -20,13 +23,31 @@ class UserInformation extends Component {
     );
     }
 
+    // TODO: Duplicate code in componentDidUpdate. Need to update this to a function component to use useEffect hook to avoid duplicate code
     async componentWillMount() {
         let {username} = this.props.params;
-        var userInformation = await fetchUserInformation(username);
-        this.setState({
-            leagueListInformation: await fetchLeagueList(userInformation.user_id),
-         });
-        console.log(this.state.leagueListInformation);
+        if (this.state.username != username)
+        {
+            var userInformation = await fetchUserInformation(username);
+            this.setState({
+                // TODO: Null check user_id and handle user not found
+                leagueListInformation: await fetchLeagueList(userInformation.user_id),
+                username: username
+            });
+        }
+    }
+
+    // TODO: Duplicate code in componentWillMount. Need to update this to a function component to use useEffect hook to avoid duplicate code
+    async componentDidUpdate() {
+        let {username} = this.props.params;
+        if (this.state.username != username)
+        {
+            var userInformation = await fetchUserInformation(username);
+            this.setState({
+                leagueListInformation: await fetchLeagueList(userInformation.user_id),
+                username: username
+            });
+        }
     }
 }
 
