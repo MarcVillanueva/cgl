@@ -1,6 +1,6 @@
-import React from 'react';
-import League from '../League/League';
-import "./LeagueList.css";
+import React from 'react'
+import League from '../League/League'
+import './LeagueList.css'
 
 const LeagueList = (props) => {
   return(
