@@ -12,6 +12,8 @@ class SearchBar extends React.Component {
   }
 
   render() {
+    var username = this.props.params.username ? this.props.params.username : "";
+
     return (
         <div>
           <div className="navbar-container">
@@ -33,7 +35,7 @@ class SearchBar extends React.Component {
                   )
                 }
               </div>
-              <div className="actions-section">Actions</div>
+              {<div className="actions-section">{username}</div>}
             </div>
           </div>
         </div>

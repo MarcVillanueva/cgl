@@ -17,7 +17,7 @@ class UserInformation extends Component {
     render() {
     return (
         <div className="main">
-            <SearchBar navigation={this.props.navigation}></SearchBar>
+            <SearchBar navigation={this.props.navigation} params={this.props.params}></SearchBar>
             <div>
                 {this.state.leagueListInformation != null ? <LeagueList className="league-list" leagues={this.state.leagueListInformation} />: null}
             </div>
