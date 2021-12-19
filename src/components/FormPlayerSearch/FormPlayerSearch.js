@@ -1,7 +1,8 @@
 import React from 'react'
-import { useNavigate } from "react-router-dom"
-import "./FormPlayerSearch.css"
+import { useNavigate } from 'react-router-dom'
+import './FormPlayerSearch.css'
 import SearchBar from '../SearchBar/SearchBar'
+import SleeperBackgroundImage from '../../assets/sleeper_background.png'
 
 class FormPlayerSearch extends React.Component {
   constructor(props) {
@@ -14,7 +15,16 @@ class FormPlayerSearch extends React.Component {
 
   render() {
       return  (
-        <SearchBar navigation={this.props.navigation}></SearchBar>
+        <div>
+          <SearchBar navigation={this.props.navigation}></SearchBar>
+          <br />
+          <img
+            src={SleeperBackgroundImage}
+            alt="new"
+            className="landing-background"
+          />
+        </div>
+        // <SearchBar navigation={this.props.navigation}></SearchBar>
     );
   }
   

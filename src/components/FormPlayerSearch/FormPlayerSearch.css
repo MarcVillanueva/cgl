@@ -41,3 +41,10 @@ input:focus {
 #searchbar-placeholder-icon {
   font-size: 14px;
 }
+
+.landing-background {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border: 5px solid #3c5079;
+}
