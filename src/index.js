@@ -3,7 +3,7 @@ import ReactDom from 'react-dom'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import App from './App'
 import UserInformation from './UserInformation'
-import SearchBar from './components/SearchBar/SearchBar'
+import NotFoundPage from './NotFoundPage'
 
 const ReactRouterSetup = () => {
   return (
@@ -12,6 +12,7 @@ const ReactRouterSetup = () => {
       <Routes>
         <Route exact path = '/' element={<App />} />
         <Route path = '/user/:username' element={<UserInformation />} />
+        <Route path = '/404' element={<NotFoundPage />} />
       </Routes>
     </Router>
   </div>

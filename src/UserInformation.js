@@ -27,27 +27,36 @@ class UserInformation extends Component {
     // TODO: Duplicate code in componentDidUpdate. Need to update this to a function component to use useEffect hook to avoid duplicate code
     async componentWillMount() {
         let {username} = this.props.params;
-        if (this.state.username != username)
+        if (this.state.username !== username)
         {
             var userInformation = await fetchUserInformation(username);
-            this.setState({
-                // TODO: Null check user_id and handle user not found
-                leagueListInformation: await fetchLeagueList(userInformation.user_id),
-                username: username
-            });
+            if (userInformation === null) {
+                this.props.navigation("/404/");
+            }
+            else {
+                this.setState({
+                    leagueListInformation: await fetchLeagueList(userInformation.user_id),
+                    username: username
+                });
+            }
         }
     }
 
     // TODO: Duplicate code in componentWillMount. Need to update this to a function component to use useEffect hook to avoid duplicate code
     async componentDidUpdate() {
         let {username} = this.props.params;
-        if (this.state.username != username)
+        if (this.state.username !== username)
         {
             var userInformation = await fetchUserInformation(username);
-            this.setState({
-                leagueListInformation: await fetchLeagueList(userInformation.user_id),
-                username: username
-            });
+            if (userInformation === null) {
+                this.props.navigation("/404/");
+            }
+            else {
+                this.setState({
+                    leagueListInformation: await fetchLeagueList(userInformation.user_id),
+                    username: username
+                });
+            }
         }
     }
 }

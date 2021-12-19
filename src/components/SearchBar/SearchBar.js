@@ -1,7 +1,6 @@
 import React from 'react'
 import './SearchBar.css'
 import SearchIcon from '@material-ui/icons/Search'
-import { useNavigate } from "react-router-dom"
 
 class SearchBar extends React.Component {
   constructor(props) {
