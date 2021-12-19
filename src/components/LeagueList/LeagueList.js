@@ -9,6 +9,7 @@ const LeagueList = (props) => {
           <League
             name={league.name}
             avatar={league.avatar}
+            leagueId={league.league_id}
             key={league.league_id}
           />
         ))}

@@ -1,9 +1,15 @@
 import React from 'react'
 import "./League.css"
 import DefaultLogo from '../../assets/default_league_logo.png'
+import {Link} from 'react-router-dom'
 
 const League = (props) => (
-  <a className = "anchor" href="">
+  <Link
+    className = "league-link"
+    to={{
+      pathname: `/league/${props.leagueId}`,
+      state: { leagueid: props.leagueId }
+    }}>
     <div className="league">
       <label className="league-name">{props.name}</label>
       <img
@@ -11,8 +17,8 @@ const League = (props) => (
       alt="new"
       className="avatar"
       />
-  </div>
-  </a>
+   </div>
+  </Link>
 );
 
 League.propTypes = {};
