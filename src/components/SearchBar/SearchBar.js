@@ -48,8 +48,8 @@ class SearchBar extends React.Component {
 
 
   async handleSubmit() {
-    var username = this.state.username;
-    this.props.navigation("/user/" + username + "/");
+    if (this.state.username.trim() !== "") 
+        this.props.navigation("/user/" + this.state.username + "/");
   }
 
   handleKeyDown(event) {
