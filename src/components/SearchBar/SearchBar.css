@@ -1,6 +1,7 @@
 .navbar-container {
   padding: 10px;
   border-bottom: 1px solid rgb(220, 220, 200);
+  color: #ffffff;
 }
 
 .navbar {
@@ -40,4 +41,13 @@ input:focus {
 
 #searchbar-placeholder-icon {
   font-size: 14px;
+  color: gray;
+}
+
+.searchbar-placeholder-text {
+  color: gray;
+}
+
+.actions-section {
+  font-weight: bold;
 }

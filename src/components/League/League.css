@@ -1,5 +1,5 @@
 .league {
-  background-color: antiquewhite;
+  background-color: #3c5079;
   border-radius: 15px;
   width: 200px;
   height: 200px;
@@ -13,6 +13,8 @@
 }
 
 .league-name {
+  color: #ffffff;
+  font-weight: bold;
   margin: 0 auto;
-  padding-top: 10px;
+  padding-top: 20px;
 }

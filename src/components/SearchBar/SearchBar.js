@@ -25,7 +25,7 @@ class SearchBar extends React.Component {
                   document.getElementById("searchbar")?.focus()
                   }}>
                   <SearchIcon id="Searchbar-placeholder-icon"></SearchIcon>
-                  <span>Search</span>
+                  <span className="searchbar-placeholder-text">Search</span>
                 </div>
                   )
                 }
