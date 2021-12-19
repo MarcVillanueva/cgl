@@ -1,3 +1,9 @@
+.anchor {
+  width: 200px;
+  height: 200px;
+  border-radius: 15px;
+}
+
 .league {
   background-color: #3c5079;
   border-radius: 15px;
@@ -17,4 +23,5 @@
   font-weight: bold;
   margin: 0 auto;
   padding-top: 20px;
+  cursor: pointer;
 }
