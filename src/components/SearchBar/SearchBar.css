@@ -18,6 +18,10 @@
   color: #ffffff;
 }
 
+.logo-section:hover {
+  color: #ffffff;
+}
+
 .searchbar {
   display: auto;
   border-radius: 3px;
