@@ -47,6 +47,9 @@ input:focus {
 
 .searchbar-placeholder-text {
   color: gray;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
 }
 
 .actions-section {
