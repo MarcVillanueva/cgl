@@ -24,7 +24,6 @@ class FormPlayerSearch extends React.Component {
             className="landing-background"
           />
         </div>
-        // <SearchBar navigation={this.props.navigation}></SearchBar>
     );
   }
   

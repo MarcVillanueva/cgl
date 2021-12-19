@@ -1,6 +1,7 @@
 import React from 'react'
 import './SearchBar.css'
 import SearchIcon from '@material-ui/icons/Search'
+import { Link } from 'react-router-dom';
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -15,7 +16,9 @@ class SearchBar extends React.Component {
         <div>
           <div className="navbar-container">
             <div className="navbar">
-              <div className="logo-section">Sleeper</div>
+              <div >
+                <Link className="logo-section" to='/'>Sleeper</Link >
+              </div>
               <div className="searchbar-section">
                 <input id="searchbar" type="text" autoComplete="off" value={this.state.username} onChange={this.handleInputChanged.bind(this)} onKeyDown={this.handleKeyDown.bind(this)}/>
                 {
