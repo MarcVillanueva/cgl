@@ -12,7 +12,6 @@ const RosterList = (props) => {
       const response = await fetch(`https://api.sleeper.app/v1/league/${params.leagueId}/users`);
       const usersList = await response.json();
       setUsersList(usersList);
-      console.log("Setting usersList to: " + usersList)
     }
      getUsers();
   }, [])
@@ -31,27 +30,28 @@ const RosterList = (props) => {
         <h1>This is the roster list</h1>
         {usersList != null ? 
         usersList.map((user) => (
-          <div>
+          <div> 
             <div className="users-list" key={user.user_id}>
             <label>{`${user.display_name}` }</label>
             <Fragment>&nbsp;</Fragment>
             {user.metadata.team_name !== undefined ? <label>({user.metadata.team_name})</label> : null}
+            <br />
+            {getStandings(user.user_id)}
           </div>
           <br />
           </div>
         )) : null}
-
-        {rostersList != null ? 
-        rostersList.map((roster) => (
-          <div className="users-list" key={roster.roster_id}>
-            <label>Owner ID: {roster.owner_id}</label>
-            <label>Wins: {roster.settings.wins}</label>
-            <label>Losses: {roster.settings.losses}</label>
-          </div>
-        )) : null}
-
     </div>
   );
+
+  function getStandings(userId) {
+    if (rostersList) {
+      var roster = rostersList.find(item => item.owner_id === userId)
+      return <label>{roster?.settings.wins}-{roster?.settings.losses}</label>
+    }
+
+    return null;
+  }
 }
 
 export default RosterList;
