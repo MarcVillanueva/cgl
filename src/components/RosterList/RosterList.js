@@ -44,7 +44,6 @@ const RosterList = (props) => {
         {rostersList != null ? 
         rostersList.map((roster) => (
           <div className="users-list" key={roster.roster_id}>
-            {/* <label>{user.username}</label> */}
             <label>Owner ID: {roster.owner_id}</label>
             <label>Wins: {roster.settings.wins}</label>
             <label>Losses: {roster.settings.losses}</label>
@@ -53,22 +52,6 @@ const RosterList = (props) => {
 
     </div>
   );
-}
-
-//TODO: Look into using promise chain here
-async function fetchUsers(leagueId) {
-    const response = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/users`);
-    const userList = await response.json();
-    console.log(`Fetching users in league ${leagueId}:  ${userList}`);
-    return userList;
-}
-
-//TODO: Look into using promise chain here
-async function fetchRosters(leagueId) {
-    const response = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/rosters`);
-    const rosterList = await response.json();
-    console.log(`Fetching rosters in league ${leagueId}:  ${rosterList}`);
-    return rosterList;
 }
 
 export default RosterList;
