@@ -1,4 +1,4 @@
-import React, { useState, useEffect }  from 'react'
+import React, { useState, useEffect, Fragment }  from 'react'
 import { useParams } from 'react-router-dom'
 import './RosterList.css'
 
@@ -22,7 +22,6 @@ const RosterList = (props) => {
       const response = await fetch(`https://api.sleeper.app/v1/league/${params.leagueId}/rosters`);
       const rostersList = await response.json();
       setRostersList(rostersList);
-      console.log("Setting rosters list to: " + usersList)
     }
      getRosters();
   }, [])
@@ -32,10 +31,13 @@ const RosterList = (props) => {
         <h1>This is the roster list</h1>
         {usersList != null ? 
         usersList.map((user) => (
-          <div className="users-list" key={user.user_id}>
-            {/* <label>{user.username}</label> */}
-            <label>{user.display_name}</label>
-            <label> ({user.metadata.team_name})</label>
+          <div>
+            <div className="users-list" key={user.user_id}>
+            <label>{`${user.display_name}` }</label>
+            <Fragment>&nbsp;</Fragment>
+            {user.metadata.team_name !== undefined ? <label>({user.metadata.team_name})</label> : null}
+          </div>
+          <br />
           </div>
         )) : null}
 
