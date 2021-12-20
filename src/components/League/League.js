@@ -12,7 +12,6 @@ const League = (props) => (
     }}>
     <div className="league">
       <label className="league-name">{props.name}</label>
-      <label >{props.leagueId}</label>
       <img
       src={props.avatar === null ? DefaultLogo : `https://sleepercdn.com/avatars/thumbs/${props.avatar}`}
       alt="new"
