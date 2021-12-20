@@ -14,7 +14,7 @@ const ReactRouterSetup = () => {
         <Route exact path = '/' element={<App />} />
         <Route path = '/user/:username' element={<UserInformation />} />
         <Route path = '/404' element={<NotFoundPage />} />
-        <Route path = '/league/:leagueid' element={<LeagueInformationPage />} />
+        <Route path = '/league/:leagueId' element={<LeagueInformationPage />} />
       </Routes>
     </Router>
   </div>

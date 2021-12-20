@@ -1,0 +1,14 @@
+.users-list {
+  color: #ffffff;
+  background-color: #3c5079;
+  border-radius: 15px;
+  width: 400px;
+  height: 100px;
+  gap: 0.15rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.players.list {
+  background-color: #3c5079;
+}

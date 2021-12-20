@@ -1,13 +1,16 @@
 import React from 'react'
 import SearchBar from './components/SearchBar/SearchBar'
 import './styles/NotFoundPage.css'
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom'
+import RosterList from './components/RosterList/RosterList'
+import './styles/LeagueInformationPage.css'
 
-function LeagueInformationPage(props) {
+const LeagueInformationPage = (props) => {
+  var params = useParams();
   return (
     <div >
         <SearchBar navigation={useNavigate()} params={useParams()}></SearchBar>
-        <h1>League information page!</h1>
+        <RosterList leagueId={params.leagueId}></RosterList>
     </div>
   );
 }
