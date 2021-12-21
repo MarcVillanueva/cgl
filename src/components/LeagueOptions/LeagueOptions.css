@@ -8,9 +8,12 @@
 .option-button {
   color: #00ceb8;
   background-color: #00ceb81a;
-  display: flex;
-  width: 8vw;
+  width: 100px;
   border-radius: 10px;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  text-align: center;
 }
 
 .option-button:hover {
