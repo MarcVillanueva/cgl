@@ -1,1 +1,23 @@
-.LeagueOptions {}
+.league-options {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  margin-left: 10px;
+}
+.option-button {
+  color: #00ceb8;
+  background-color: #00ceb81a;
+  display: flex;
+  width: 8vw;
+  border-radius: 10px;
+}
+
+.option-button:hover {
+  color: #022047;
+  background-color: #00ceb8;
+}
+
+label {
+  margin-left: auto;
+  margin-right: auto;
+}
