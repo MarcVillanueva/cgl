@@ -3,6 +3,7 @@
   flex-direction: row;
   gap: 0.5rem;
   margin-left: 10px;
+  margin-right: 10px;
 }
 .option-button {
   color: #00ceb8;

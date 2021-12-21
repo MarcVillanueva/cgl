@@ -9,6 +9,15 @@ const LeagueOptions = () => (
     <div className="option-button">
       <label >DRAFT</label>
     </div>
+    <div className="option-button">
+      <label >RESULTS</label>
+    </div>
+    <div className="option-button">
+      <label >COLLUSION</label>
+    </div>
+    <div className="option-button">
+      <label >WEEKLYS</label>
+    </div>
   </div>
 
 );
