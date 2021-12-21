@@ -9,6 +9,7 @@ import LeagueOptions from './components/LeagueOptions/LeagueOptions'
 const LeagueInformationPage = (props) => {
   var params = useParams();
   const [leagueName, setLeagueName] = useState(null);
+  const [selectedOption, setSelected] = useState("Rosters");
 
   useEffect(() => {
     async function getLeagueName() {
@@ -24,8 +25,8 @@ const LeagueInformationPage = (props) => {
         <SearchBar navigation={useNavigate()} params={params} name={leagueName}></SearchBar>
         <br />
         <div className="league-option-panel">
-          <LeagueOptions></LeagueOptions>
-          <RosterList leagueId={params.leagueId}></RosterList>
+          <LeagueOptions selectedOption={selectedOption} setSelected={setSelected}></LeagueOptions>
+          {selectedOption === "Rosters" ? <RosterList leagueId={params.leagueId}></RosterList> : <label>IN PROGRESS</label>}
         </div>
         <br />
     </div>

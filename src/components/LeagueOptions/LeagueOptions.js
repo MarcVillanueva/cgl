@@ -1,24 +1,23 @@
-import React, { useState} from 'react';
-import './LeagueOptions.css';
+import React, { useState, useEffect } from 'react'
+import './LeagueOptions.css'
 
 const LeagueOptions = props => {
-  const [selectedOption, setSelected] = useState("Rosters");
 
   return (
   <div className="league-options">
-    <div className={selectedOption === "Rosters" ? "option-button-selected" : "option-button"} onClick={() => setSelected("Rosters")}>
+    <div className={props.selectedOption === "Rosters" ? "option-button-selected" : "option-button"} onClick={() => props.setSelected("Rosters")}>
       <label >ROSTERS</label>
     </div>
-    <div className={selectedOption === "Draft" ? "option-button-selected" : "option-button"} onClick={() => setSelected("Draft")}>
+    <div className={props.selectedOption === "Draft" ? "option-button-selected" : "option-button"} onClick={() => props.setSelected("Draft")}>
       <label >DRAFT</label>
     </div>
-    <div className={selectedOption === "Results" ? "option-button-selected" : "option-button"} onClick={() => setSelected("Results")}>
+    <div className={props.selectedOption === "Results" ? "option-button-selected" : "option-button"} onClick={() => props.setSelected("Results")}>
       <label >RESULTS</label>
     </div>
-    <div className={selectedOption === "Collusion" ? "option-button-selected" : "option-button"} onClick={() => setSelected("Collusion")}>
+    <div className={props.selectedOption === "Collusion" ? "option-button-selected" : "option-button"} onClick={() => props.setSelected("Collusion")}>
       <label >COLLUSION</label>
     </div>
-    <div className={selectedOption === "Weeklys" ? "option-button-selected" : "option-button"} onClick={() => setSelected("Weeklys")}>
+    <div className={props.selectedOption === "Weeklys" ? "option-button-selected" : "option-button"} onClick={() => props.setSelected("Weeklys")}>
       <label >WEEKLYS</label>
     </div>
   </div>
