@@ -16,9 +16,15 @@
   text-align: center;
 }
 
-.option-button:hover {
+.option-button-selected {
   color: #022047;
   background-color: #00ceb8;
+  width: 100px;
+  border-radius: 10px;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  text-align: center;
 }
 
 label {
