@@ -8,7 +8,7 @@ const League = (props) => (
     className = "league-link"
     to={{
       pathname: `/league/${props.leagueId}`,
-      state: { leagueId: props.leagueId }
+      state: { leagueId: props.leagueId, leagueName: props.name }
     }}>
     <div className="league">
       <label className="league-name">{props.name}</label>

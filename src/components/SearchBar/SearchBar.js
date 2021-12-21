@@ -12,8 +12,7 @@ class SearchBar extends React.Component {
   }
 
   render() {
-    var username = this.props.params.username ? this.props.params.username : "";
-
+    var username = this.props.name ? this.props.name : "";
     return (
         <div>
           <div className="navbar-container">
