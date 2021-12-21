@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Fragment }  from 'react'
 import { useParams } from 'react-router-dom'
 import './RosterList.css'
+import {Link} from 'react-router-dom'
 
 const RosterList = (props) => {
   const [usersList, setUsersList] = useState(null);
@@ -32,16 +33,23 @@ const RosterList = (props) => {
         <label className="rosters-label">Rosters</label>
           {usersList != null ? 
           usersList.map((user) => (
-            <div> 
-              <div className="users-list" key={user.user_id}>
-              <label>{`${user.display_name}` }</label>
-              <Fragment>&nbsp;</Fragment>
-              {user.metadata.team_name !== undefined ? <label>({user.metadata.team_name})</label> : null}
+              <div> 
+                <Link
+                className = "user-link"
+                to={{
+                  pathname: `/user/${user.display_name}`,
+                  state: { username: user.display_name }
+                }}>
+                  <div className="users-list" key={user.user_id}>
+                  <label>{`${user.display_name}` }</label>
+                  <Fragment>&nbsp;</Fragment>
+                  {user.metadata.team_name !== undefined ? <label>({user.metadata.team_name})</label> : null}
+                  <br />
+                  {getStandings(user.user_id)}
+                </div>
+            </Link>
               <br />
-              {getStandings(user.user_id)}
-            </div>
-            <br />
-            </div>
+              </div>
           )) : null}
       </div>
       <br />
