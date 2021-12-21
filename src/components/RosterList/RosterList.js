@@ -26,22 +26,27 @@ const RosterList = (props) => {
   }, [])
   
   return (
-    <div className="players-list">
-        <h1>This is the roster list</h1>
-        {usersList != null ? 
-        usersList.map((user) => (
-          <div> 
-            <div className="users-list" key={user.user_id}>
-            <label>{`${user.display_name}` }</label>
-            <Fragment>&nbsp;</Fragment>
-            {user.metadata.team_name !== undefined ? <label>({user.metadata.team_name})</label> : null}
+    <div>
+      <br />
+      <div className="players-list">
+        <label className="rosters-label">Rosters</label>
+          {usersList != null ? 
+          usersList.map((user) => (
+            <div> 
+              <div className="users-list" key={user.user_id}>
+              <label>{`${user.display_name}` }</label>
+              <Fragment>&nbsp;</Fragment>
+              {user.metadata.team_name !== undefined ? <label>({user.metadata.team_name})</label> : null}
+              <br />
+              {getStandings(user.user_id)}
+            </div>
             <br />
-            {getStandings(user.user_id)}
-          </div>
-          <br />
-          </div>
-        )) : null}
+            </div>
+          )) : null}
+      </div>
+      <br />
     </div>
+
   );
 
   function getStandings(userId) {

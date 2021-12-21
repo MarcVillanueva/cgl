@@ -1,6 +1,11 @@
+.rosters-label {
+  color: #ffffff;
+  margin-left: 3vw;
+}
+
 .users-list {
   color: #ffffff;
-  background-color: #3c5079;
+  background-color: #2f394a;
   border-radius: 15px;
   width: 600px;
   height: 100px;
@@ -11,7 +16,13 @@
   font-weight: bold;
 }
 
-.players.list {
-  background-color: #3c5079;
+.players-list {
+  padding-top: 15px;
+  background-color: #293142;
   font-weight: bold;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  border: 2px solid #2f394a;
 }

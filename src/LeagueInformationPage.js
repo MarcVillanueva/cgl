@@ -16,7 +16,7 @@ const LeagueInformationPage = (props) => {
       setLeagueName(league.name);
   }
   getLeagueName();
-  }, [])
+  }, [params.leagueId])
 
   return (
     <div >
