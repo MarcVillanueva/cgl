@@ -29,8 +29,6 @@ const RosterList = (props) => {
   return (
     <div>
       <br />
-      <div className="players-list">
-        <label className="rosters-label">Rosters</label>
           {usersList != null ? 
           usersList.map((user) => (
               <div> 
@@ -51,7 +49,6 @@ const RosterList = (props) => {
               <br />
               </div>
           )) : null}
-      </div>
       <br />
     </div>
 

@@ -4,6 +4,7 @@ import './styles/NotFoundPage.css'
 import { useNavigate, useParams } from 'react-router-dom'
 import RosterList from './components/RosterList/RosterList'
 import './styles/LeagueInformationPage.css'
+import LeagueOptions from './components/LeagueOptions/LeagueOptions'
 
 const LeagueInformationPage = (props) => {
   var params = useParams();
@@ -21,7 +22,12 @@ const LeagueInformationPage = (props) => {
   return (
     <div >
         <SearchBar navigation={useNavigate()} params={params} name={leagueName}></SearchBar>
-        <RosterList leagueId={params.leagueId}></RosterList>
+        <br />
+        <div className="league-option-panel">
+          <LeagueOptions></LeagueOptions>
+          <RosterList leagueId={params.leagueId}></RosterList>
+        </div>
+        <br />
     </div>
   );
 }
