@@ -1,13 +1,15 @@
 import React from 'react';
 import styles from './DraftPick.css';
 
-const DraftPick = () => (
+const DraftPick = (props) => (
   <div className={styles.DraftPick}>
-    <label>Player ID</label>
+    <label>{props.pick.pick_no}</label>
     <br></br>
-    <label>Roster name</label>
+    <label>{props.pick.metadata.last_name}</label>
     <br></br>
-    <label>Draft pick number</label>
+    <label>{props.pick.metadata.first_name}</label>
+    <br></br>
+    <label>{props.pick.metadata.position}</label>
     <br></br>
   </div>
 );
