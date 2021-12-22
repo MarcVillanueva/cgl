@@ -3,6 +3,7 @@ import SearchBar from './components/SearchBar/SearchBar'
 import './styles/NotFoundPage.css'
 import { useNavigate, useParams } from 'react-router-dom'
 import RosterList from './components/RosterList/RosterList'
+import DraftChart from './components/DraftChart/DraftChart'
 import './styles/LeagueInformationPage.css'
 import LeagueOptions from './components/LeagueOptions/LeagueOptions'
 
@@ -26,7 +27,8 @@ const LeagueInformationPage = (props) => {
         <br />
         <div className="league-option-panel">
           <LeagueOptions selectedOption={selectedOption} setSelected={setSelected}></LeagueOptions>
-          {selectedOption === "Rosters" ? <RosterList leagueId={params.leagueId}></RosterList> : <label>IN PROGRESS</label>}
+          {selectedOption === "Rosters" ? <RosterList leagueId={params.leagueId}></RosterList> : null}
+          {selectedOption === "Draft" ? <DraftChart leagueId={params.leagueId}></DraftChart> : null}
         </div>
         <br />
     </div>
