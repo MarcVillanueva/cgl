@@ -1,5 +1,6 @@
 .league-options {
   display: flex;
+  width: 800px;
   flex-direction: row;
   gap: 0.5rem;
   margin-left: 10px;

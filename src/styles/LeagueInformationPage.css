@@ -3,14 +3,17 @@
   padding-top: 15px;
   background-color: #293142;
   font-weight: bold;
-  /* Making this width 2600 to accomodate draft chart. TODO: 
-  - Create new parent element for draft chart. or
-  - Move buttons to a side menu because they are getting too fat */
-  width: 2600px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 10px;
   border-radius: 15px;
   border: 2px solid #2f394a;
+  display: inline-block;
+}
+
+.league-information {
+  margin-left: 10px;
+  align-items: center;
 }
 
 .players-list {

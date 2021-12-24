@@ -27,11 +27,11 @@ const RosterList = (props) => {
   }, [])
   
   return (
-    <div>
+    <div >
       <br />
           {usersList != null ? 
           usersList.map((user) => (
-              <div> 
+              <div className="parent-roster-list"> 
                 <Link
                 className = "user-link"
                 to={{
@@ -49,7 +49,6 @@ const RosterList = (props) => {
               <br />
               </div>
           )) : null}
-      <br />
     </div>
 
   );

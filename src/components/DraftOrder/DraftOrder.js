@@ -1,5 +1,7 @@
 import React, { useState, useEffect, Fragment } from 'react';
+import { Link } from 'react-router-dom'
 import './DraftOrder.css';
+import DraftPick from './../DraftPick/DraftPick'
 
 const DraftOrder = (props) => {
   let playerIdOrderList = [];
@@ -29,11 +31,13 @@ const DraftOrder = (props) => {
     return a.player_order - b.player_order;
   })
 
+  const teamSize = playerIdOrderList.length
+  console.log("Team size: " + teamSize)
   return(
-    <div className="pick-order-parent">
-      {playerIdOrderList != null ? 
+    <div className={`draft-picks-${teamSize}`}>
+      {playerIdOrderList != null && isEven(teamSize) ? 
       playerIdOrderList.map((player) => (
-          <div className="pick-order"> 
+          <div > 
               <div > 
                 <label>{player.player_order}</label>
                 <br />
@@ -42,9 +46,24 @@ const DraftOrder = (props) => {
               </div>         
           </div>
       )) : null}
+        {props.draftPicks != null && isEven(teamSize)? 
+        props.draftPicks.map((pick) => (
+              <Link
+              to={{
+                pathname: `/`
+              }}>
+                <div>
+                  <DraftPick pick={pick}></DraftPick>
+                </div>
+          </Link>
+        )) : null}
     </div>
   )
 };
+
+function isEven(n) {
+   return n % 2 == 0;
+}
 
 DraftOrder.propTypes = {};
 

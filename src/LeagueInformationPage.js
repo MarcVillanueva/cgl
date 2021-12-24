@@ -22,7 +22,7 @@ const LeagueInformationPage = (props) => {
   }, [params.leagueId])
 
   return (
-    <div >
+    <div className="league-information">
         <SearchBar navigation={useNavigate()} params={params} name={leagueName}></SearchBar>
         <br />
         <div className="league-option-panel">

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import styles from './DraftChart.css'
+import './DraftChart.css'
 import DraftPick from './../DraftPick/DraftPick'
 import DraftOrder from './../DraftOrder/DraftOrder'
 import { Link } from 'react-router-dom'
@@ -30,23 +30,23 @@ const DraftChart = (props) => {
   }, [draft?.draft_id])
 
   return (
-  <div className={styles.DraftChart}>
+  <div>
     <br />
-      <DraftOrder order={draft?.draft_order} leagueId={props.leagueId}></DraftOrder>
+      <DraftOrder order={draft?.draft_order} leagueId={props.leagueId} draftPicks={draftPicks}></DraftOrder>
+      {/* <div className="draft-picks">
       {draftPicks != null ? 
-      draftPicks.map((pick) => (
-          <div> 
-            <Link
-            className = "pick-link"
-            to={{
-              pathname: `/`
-            }}>
-              <div>
-                <DraftPick pick={pick}></DraftPick>
-              </div>
-        </Link>
-          </div>
-      )) : null}
+        draftPicks.map((pick) => (
+              <Link
+              className = "pick-link"
+              to={{
+                pathname: `/`
+              }}>
+                <div>
+                  <DraftPick pick={pick}></DraftPick>
+                </div>
+          </Link>
+        )) : null}
+      </div> */}
   </div>
   )
 ;

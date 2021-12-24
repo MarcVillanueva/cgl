@@ -10,8 +10,15 @@
   width: 450px;
   height: 100px;
   gap: 0.15rem;
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
   font-weight: bold;
+}
+
+.user-link {
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.parent-roster-list {
+  text-align: center;
 }

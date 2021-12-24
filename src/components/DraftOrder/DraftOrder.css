@@ -1,11 +1,87 @@
-.pick-order {
+.pick-order-parent {
+  display: flex;
+}
+
+.draft-picks-8 {
+  display: grid;
+  gap: 2rem;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  grid-template-columns: repeat(8, 1fr);
+  align-content: center;
+  text-align: center;
+  font-size: 16px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.draft-picks-10 {
+  display: grid;
+  gap: 2rem;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  grid-template-columns: repeat(10, 1fr);
+  align-content: center;
+  text-align: center;
+  font-size: 14px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.draft-picks-12 {
+  display: grid;
+  gap: 2rem;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  grid-template-columns: repeat(12, 1fr);
+  align-content: center;
+  text-align: center;
+  font-size: 14px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.draft-picks-14 {
+  display: grid;
+  gap: 2rem;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  grid-template-columns: repeat(14, 1fr);
+  align-content: center;
+  text-align: center;
+  font-size: 14px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.draft-picks-16 {
+  display: grid;
+  gap: 2rem;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  grid-template-columns: repeat(16, 1fr);
+  align-content: center;
+  text-align: center;
+  font-size: 14px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.draft-picks-32 {
+  display: grid;
+  gap: 2rem;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  grid-template-columns: repeat(32, 1fr);
   align-content: center;
   text-align: center;
   font-size: 9px;
   margin-left: auto;
   margin-right: auto;
-}
-
-.pick-order-parent {
-  display: flex;
 }
