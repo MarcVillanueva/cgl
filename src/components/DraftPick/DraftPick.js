@@ -9,7 +9,7 @@ const DraftPick = (props) => (
     <br></br>
     <label>{props.pick.metadata.last_name}</label>
     <br></br>
-    <label>{props.pick.metadata.position}</label>
+    <label>{props.pick.metadata.team}</label>
     <br></br>
   </div>
 );
