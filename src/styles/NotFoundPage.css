@@ -5,6 +5,19 @@
   display: block;
 }
 
-/* .not-found-div {
-  background-color: blueviolet;
-} */
+.not-found-label {
+  color: white;
+  font-size: 28;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "apple-system,BlinkMacSystemFont," Segoe UI
+    ",Roboto,Helvetica,Arial,sans-serif";
+  vertical-align: center;
+  padding-left: 50px;
+}
+
+@media screen and (max-width: 956px) {
+  .not-found-label {
+    display: none;
+  }
+}

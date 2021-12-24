@@ -6,12 +6,10 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 function NotFoundPage(props) {
   return (
-    <div >
+    <div style={{textAlign:"center"}}>
         <SearchBar navigation={useNavigate()} params={useParams()}></SearchBar>
-        <img 
-        className="not-found-image"
-        src={NotFoundImage}
-        />
+        <br />
+        <h1 className="not-found-label">User not found</h1>
     </div>
   );
 }
