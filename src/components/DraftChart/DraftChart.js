@@ -31,7 +31,8 @@ const DraftChart = (props) => {
 
   return (
   <div className={styles.DraftChart}>
-      <DraftOrder order={draft?.draft_order}></DraftOrder>
+    <br />
+      <DraftOrder order={draft?.draft_order} leagueId={props.leagueId}></DraftOrder>
       {draftPicks != null ? 
       draftPicks.map((pick) => (
           <div> 

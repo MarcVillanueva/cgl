@@ -3,7 +3,10 @@
   padding-top: 15px;
   background-color: #293142;
   font-weight: bold;
-  width: 800px;
+  /* Making this width 2600 to accomodate draft chart. TODO: 
+  - Create new parent element for draft chart. or
+  - Move buttons to a side menu because they are getting too fat */
+  width: 2600px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 15px;
