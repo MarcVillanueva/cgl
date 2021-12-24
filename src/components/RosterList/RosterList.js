@@ -30,7 +30,7 @@ const RosterList = (props) => {
     <div >
       <br />
           {usersList != null ? 
-          usersList.map((user) => (
+          usersList.map((user, i, row) => (
               <div className="parent-roster-list"> 
                 <Link
                 className = "user-link"
@@ -38,7 +38,7 @@ const RosterList = (props) => {
                   pathname: `/user/${user.display_name}`,
                   state: { username: user.display_name }
                 }}>
-                  <div className="users-list" key={user.user_id}>
+                  <div className={getRosterStyle(i, row.length)} key={user.user_id}>
                   <label>{`${user.display_name}` }</label>
                   <Fragment>&nbsp;</Fragment>
                   {user.metadata.team_name !== undefined ? <label>({user.metadata.team_name})</label> : null}
@@ -60,6 +60,11 @@ const RosterList = (props) => {
     }
 
     return null;
+  }
+
+  function getRosterStyle(index, arrayLength) {
+    console.log("Index: " + index + "arrayLength" + arrayLength)
+    return (index + 1 == arrayLength ? "users-list-last" : "users-list");
   }
 }
 

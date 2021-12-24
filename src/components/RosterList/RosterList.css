@@ -5,20 +5,30 @@
 
 .users-list {
   color: #ffffff;
-  background-color: #3c5079;
-  border-radius: 15px;
+  background-color: #293142;
   width: 450px;
   height: 100px;
   gap: 0.15rem;
-  text-align: center;
+  text-align: left;
+  font-weight: bold;
+  border-bottom: gray 1px solid;
+}
+
+.users-list-last {
+  color: #ffffff;
+  background-color: #293142;
+  width: 450px;
+  height: 100px;
+  gap: 0.15rem;
+  text-align: left;
   font-weight: bold;
 }
 
 .user-link {
   display: inline-block;
-  padding-bottom: 10px;
 }
 
 .parent-roster-list {
-  text-align: center;
+  margin-left: 10px;
+  text-align: left;
 }

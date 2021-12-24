@@ -33,20 +33,6 @@ const DraftChart = (props) => {
   <div>
     <br />
       <DraftOrder order={draft?.draft_order} leagueId={props.leagueId} draftPicks={draftPicks}></DraftOrder>
-      {/* <div className="draft-picks">
-      {draftPicks != null ? 
-        draftPicks.map((pick) => (
-              <Link
-              className = "pick-link"
-              to={{
-                pathname: `/`
-              }}>
-                <div>
-                  <DraftPick pick={pick}></DraftPick>
-                </div>
-          </Link>
-        )) : null}
-      </div> */}
   </div>
   )
 ;
