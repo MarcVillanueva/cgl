@@ -32,7 +32,6 @@ const DraftOrder = (props) => {
   })
 
   const teamSize = playerIdOrderList.length
-  console.log("Team size: " + teamSize)
   return(
     <div className={`draft-picks-${teamSize}`}>
       {playerIdOrderList != null && isEven(teamSize) ? 

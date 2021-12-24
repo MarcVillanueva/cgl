@@ -63,7 +63,6 @@ const RosterList = (props) => {
   }
 
   function getRosterStyle(index, arrayLength) {
-    console.log("Index: " + index + "arrayLength" + arrayLength)
     return (index + 1 == arrayLength ? "users-list-last" : "users-list");
   }
 }

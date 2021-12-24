@@ -1,6 +1,54 @@
-.picks {
+.pick {
   text-align: center;
   font-size: 9px;
   color: white;
   font-weight: bold;
+}
+
+.pick-qb {
+  text-align: center;
+  font-size: 9px;
+  color: white;
+  font-weight: bold;
+  background-color: #df532a;
+}
+
+.pick-rb {
+  text-align: center;
+  font-size: 9px;
+  color: white;
+  font-weight: bold;
+  background-color: #2e3196;
+}
+
+.pick-wr {
+  text-align: center;
+  font-size: 9px;
+  color: white;
+  font-weight: bold;
+  background-color: #03993b;
+}
+
+.pick-te {
+  text-align: center;
+  font-size: 9px;
+  color: white;
+  font-weight: bold;
+  background-color: #a93bcd;
+}
+
+.pick-k {
+  text-align: center;
+  font-size: 9px;
+  color: white;
+  font-weight: bold;
+  background-color: #24abe2;
+}
+
+.pick-def {
+  text-align: center;
+  font-size: 9px;
+  color: white;
+  font-weight: bold;
+  background-color: red;
 }
