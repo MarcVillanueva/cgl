@@ -8,7 +8,7 @@
   padding-top: 10px;
   padding-left: 10px;
   padding-bottom: 10px;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(8, minmax(90px, 1fr));
   align-content: center;
   text-align: center;
   font-size: 16px;
@@ -22,7 +22,7 @@
   padding-top: 10px;
   padding-left: 10px;
   padding-bottom: 10px;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(10, minmax(90px, 1fr));
   align-content: center;
   text-align: center;
   font-size: 14px;
@@ -36,7 +36,7 @@
   padding-top: 10px;
   padding-left: 10px;
   padding-bottom: 10px;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(12, minmax(90px, 1fr));
   align-content: center;
   text-align: center;
   font-size: 14px;
@@ -50,7 +50,7 @@
   padding-top: 10px;
   padding-left: 10px;
   padding-bottom: 10px;
-  grid-template-columns: repeat(14, 1fr);
+  grid-template-columns: repeat(14, minmax(90px, 1fr));
   align-content: center;
   text-align: center;
   font-size: 14px;
@@ -64,7 +64,7 @@
   padding-top: 10px;
   padding-left: 10px;
   padding-bottom: 10px;
-  grid-template-columns: repeat(16, 1fr);
+  grid-template-columns: repeat(16, minmax(90px, 1fr));
   align-content: center;
   text-align: center;
   font-size: 14px;
@@ -78,7 +78,7 @@
   padding-top: 10px;
   padding-left: 10px;
   padding-bottom: 10px;
-  grid-template-columns: repeat(32, 1fr);
+  grid-template-columns: repeat(32, minmax(90px, 1fr));
   align-content: center;
   text-align: center;
   font-size: 9px;
