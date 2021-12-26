@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import './DraftChart.css'
-import DraftPick from './../DraftPick/DraftPick'
 import DraftOrder from './../DraftOrder/DraftOrder'
-import { Link } from 'react-router-dom'
 const DraftChart = (props) => {
   const [draft, setDraft] = useState(null);
   const [draftPicks, setDraftPicks] = useState(null);
@@ -28,6 +25,15 @@ const DraftChart = (props) => {
       }
     getDraftPicks(draft?.draft_id);
   }, [draft?.draft_id])
+
+  if (draftPicks) {
+      draftPicks.sort(function (a, b) {
+        return a.draft_slot - b.draft_slot
+  });
+  }
+
+
+  console.log(draftPicks)
 
   return (
   <div>

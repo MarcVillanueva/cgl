@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom'
 import './DraftOrder.css';
 import DraftPick from './../DraftPick/DraftPick'
@@ -7,15 +7,32 @@ const DraftOrder = (props) => {
   let playerIdOrderList = [];
   const [league, setLeagueUsers] = useState(null);
 
-  useEffect(() => {
-  async function getLeagueUsers() {
-    const response = await fetch(`https://api.sleeper.app/v1/league/${props.leagueId}/users`);
-    const leagueUsers = await response.json();
-    setLeagueUsers(leagueUsers);
-  }
-  getLeagueUsers(props.leagueId);
-}, [])
+  const [rosterSize, setRosterSize] = useState(0);
+  const [totalRosters, setTotalRosters] = useState(0);
+  const picksRef = useRef(null);
+  const rostersRef = useRef(null);
 
+  useEffect(() => {
+    async function getLeagueUsers() {
+      const response = await fetch(`https://api.sleeper.app/v1/league/${props.leagueId}/users`);
+      const leagueUsers = await response.json();
+      setLeagueUsers(leagueUsers);
+    }
+    getLeagueUsers(props.leagueId);
+  }, [])
+
+  useEffect(() => {
+      async function getRosterSize(leagueId) {
+      const response = await fetch(`https://api.sleeper.app/v1/league/${leagueId}`);
+      const league = await response.json();
+      setRosterSize(league.roster_positions.length);
+      setTotalRosters(league.total_rosters)
+      picksRef.current.style.setProperty("--grid-size", rosterSize);
+      rostersRef.current.style.setProperty("--total-rosters", totalRosters);
+    }
+    getRosterSize(props.leagueId);
+  }, [rosterSize, totalRosters]);
+  
   if (props.order) {
     for (const [playerId, playerOrder] of Object.entries(props.order)) {
       playerIdOrderList.push(
@@ -33,18 +50,19 @@ const DraftOrder = (props) => {
 
   const teamSize = playerIdOrderList.length
   return(
-    <div className={`draft-picks-${teamSize}`}>
-      {playerIdOrderList != null && isEven(teamSize) ? 
-      playerIdOrderList.map((player) => (
-          <div > 
-              <div > 
-                <label>{player.player_order}</label>
-                <br />
-                {league != null ? <label>{league.find(user => user.user_id === player.player_id).display_name}</label> : null}
-                <br></br>
-              </div>         
-          </div>
-      )) : null}
+    // TODO: Separate these into two components DraftOrder and DraftPicks to make it more readable
+    <div >
+      <div ref={rostersRef} className="draft-order">
+        {playerIdOrderList != null && isEven(teamSize) ? 
+        playerIdOrderList.map((player) => (
+            <div className="roster"> 
+                  <label>{player.player_order}</label>
+                  <br />
+                  {league != null ? <label>{league.find(user => user.user_id === player.player_id).display_name}</label> : null}
+                </div>         
+        )) : null}
+      </div>
+      <div ref={picksRef} className={`draft-picks`}>
         {props.draftPicks != null && isEven(teamSize)? 
         props.draftPicks.map((pick) => (
               <Link
@@ -56,6 +74,7 @@ const DraftOrder = (props) => {
                 </div>
           </Link>
         )) : null}
+      </div>
     </div>
   )
 };

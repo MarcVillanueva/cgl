@@ -3,6 +3,8 @@
   font-size: 9px;
   color: white;
   font-weight: bold;
+  height: 100px;
+  width: 100px;
 }
 
 .pick-qb {
@@ -11,6 +13,8 @@
   color: white;
   font-weight: bold;
   background-color: #df532a;
+  height: 100px;
+  width: 100px;
 }
 
 .pick-rb {
@@ -19,6 +23,8 @@
   color: white;
   font-weight: bold;
   background-color: #2e3196;
+  height: 100px;
+  width: 100px;
 }
 
 .pick-wr {
@@ -27,6 +33,8 @@
   color: white;
   font-weight: bold;
   background-color: #03993b;
+  height: 100px;
+  width: 100px;
 }
 
 .pick-te {
@@ -35,6 +43,8 @@
   color: white;
   font-weight: bold;
   background-color: #a93bcd;
+  height: 100px;
+  width: 100px;
 }
 
 .pick-k {
@@ -43,6 +53,8 @@
   color: white;
   font-weight: bold;
   background-color: #24abe2;
+  height: 100px;
+  width: 100px;
 }
 
 .pick-def {
@@ -51,4 +63,6 @@
   color: white;
   font-weight: bold;
   background-color: red;
+  height: 100px;
+  width: 100px;
 }
