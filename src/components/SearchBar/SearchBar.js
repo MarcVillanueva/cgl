@@ -2,6 +2,7 @@ import React from 'react'
 import './SearchBar.css'
 import SearchIcon from '@material-ui/icons/Search'
 import { Link } from 'react-router-dom';
+import DefaultLogo from '../../assets/default_league_logo.png'
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -34,7 +35,14 @@ class SearchBar extends React.Component {
                   )
                 }
               </div>
-              {<div className="actions-section">{username}</div>}
+              {<div className="actions-section">
+                <img
+                  src={this.props.avatar === null || this.props.avatar === undefined? DefaultLogo : `https://sleepercdn.com/avatars/thumbs/${this.props.avatar}`}
+                  alt="new"
+                  className="avatar-searchbar"
+                />
+                {username}
+                </div>}
             </div>
           </div>
         </div>

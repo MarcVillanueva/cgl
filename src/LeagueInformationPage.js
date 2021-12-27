@@ -10,6 +10,7 @@ import LeagueOptions from './components/LeagueOptions/LeagueOptions'
 const LeagueInformationPage = (props) => {
   var params = useParams();
   const [leagueName, setLeagueName] = useState(null);
+  const [leagueAvatar, setLeagueAvatar] = useState("");
   const [selectedOption, setSelected] = useState("Rosters");
 
   useEffect(() => {
@@ -17,13 +18,14 @@ const LeagueInformationPage = (props) => {
       const response = await fetch(`https://api.sleeper.app/v1/league/${params.leagueId}`);
       const league = await response.json();
       setLeagueName(league.name);
+      setLeagueAvatar(league.avatar)
   }
   getLeagueName();
   }, [params.leagueId])
 
   return (
     <div className="league-information">
-        <SearchBar navigation={useNavigate()} params={params} name={leagueName}></SearchBar>
+        <SearchBar navigation={useNavigate()} params={params} name={leagueName} avatar={leagueAvatar}></SearchBar>
         <br />
         <div className="league-option-tabs">
           <LeagueOptions selectedOption={selectedOption} setSelected={setSelected}></LeagueOptions>

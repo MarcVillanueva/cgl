@@ -9,14 +9,15 @@ class UserInformation extends Component {
         super(props);
         this.state = {
             leagueListInformation: null,
-            username: ""
+            username: "",
+            avatar: ""
         }
     }
     
     render() {
     return (
         <div className="main">
-            <SearchBar navigation={this.props.navigation} name={this.props.params.username}></SearchBar>
+            <SearchBar navigation={this.props.navigation} name={this.props.params.username} avatar={this.state.avatar}></SearchBar>
             <div>
                 {this.state.leagueListInformation != null ? <LeagueList className="league-list" leagues={this.state.leagueListInformation} />: null}
             </div>
@@ -27,6 +28,7 @@ class UserInformation extends Component {
     // TODO: Duplicate code in componentDidUpdate. Need to update this to a function component to use useEffect hook to avoid duplicate code
     async componentWillMount() {
         let {username} = this.props.params;
+
         if (this.state.username !== username)
         {
             var userInformation = await fetchUserInformation(username);
@@ -36,7 +38,8 @@ class UserInformation extends Component {
             else {
                 this.setState({
                     leagueListInformation: await fetchLeagueList(userInformation.user_id),
-                    username: username
+                    username: username,
+                    avatar: userInformation.avatar
                 });
             }
         }
@@ -45,6 +48,7 @@ class UserInformation extends Component {
     // TODO: Duplicate code in componentWillMount. Need to update this to a function component to use useEffect hook to avoid duplicate code
     async componentDidUpdate() {
         let {username} = this.props.params;
+
         if (this.state.username !== username)
         {
             var userInformation = await fetchUserInformation(username);
@@ -54,7 +58,8 @@ class UserInformation extends Component {
             else {
                 this.setState({
                     leagueListInformation: await fetchLeagueList(userInformation.user_id),
-                    username: username
+                    username: username,
+                    avatar: userInformation.avatar
                 });
             }
         }
