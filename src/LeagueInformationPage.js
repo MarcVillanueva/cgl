@@ -6,6 +6,7 @@ import RosterList from './components/RosterList/RosterList'
 import DraftChart from './components/DraftChart/DraftChart'
 import './styles/LeagueInformationPage.css'
 import LeagueOptions from './components/LeagueOptions/LeagueOptions'
+import PlayoffBracket from './components/PlayoffBracket/PlayoffBracket'
 
 const LeagueInformationPage = (props) => {
   var params = useParams();
@@ -33,6 +34,7 @@ const LeagueInformationPage = (props) => {
         <div className={selectedOption === "Draft" ? "league-option-panel-draft" : "league-option-panel"}>
           {selectedOption === "Rosters" ? <RosterList leagueId={params.leagueId}></RosterList> : null}
           {selectedOption === "Draft" ? <DraftChart leagueId={params.leagueId}></DraftChart> : null}
+          {selectedOption === "Results" ? <PlayoffBracket leagueId={params.leagueId}></PlayoffBracket> : null}
         </div>
         <br />
     </div>
