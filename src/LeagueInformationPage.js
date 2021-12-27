@@ -25,8 +25,10 @@ const LeagueInformationPage = (props) => {
     <div className="league-information">
         <SearchBar navigation={useNavigate()} params={params} name={leagueName}></SearchBar>
         <br />
-        <div className="league-option-panel">
+        <div className="league-option-tabs">
           <LeagueOptions selectedOption={selectedOption} setSelected={setSelected}></LeagueOptions>
+        </div>
+        <div className={selectedOption === "Draft" ? "league-option-panel-draft" : "league-option-panel"}>
           {selectedOption === "Rosters" ? <RosterList leagueId={params.leagueId}></RosterList> : null}
           {selectedOption === "Draft" ? <DraftChart leagueId={params.leagueId}></DraftChart> : null}
         </div>
