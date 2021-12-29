@@ -32,9 +32,6 @@ const DraftChart = (props) => {
   });
   }
 
-
-  console.log(draftPicks)
-
   return (
   <div>
     <br />

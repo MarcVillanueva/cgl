@@ -13,13 +13,13 @@ const DraftOrder = (props) => {
   const rostersRef = useRef(null);
 
   useEffect(() => {
-    async function getLeagueUsers() {
-      const response = await fetch(`https://api.sleeper.app/v1/league/${props.leagueId}/users`);
+    async function getLeagueUsers(leagueId) {
+      const response = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/users`);
       const leagueUsers = await response.json();
       setLeagueUsers(leagueUsers);
     }
     getLeagueUsers(props.leagueId);
-  }, [])
+  }, [props.leagueId])
 
   useEffect(() => {
       async function getRosterSize(leagueId) {
@@ -31,7 +31,7 @@ const DraftOrder = (props) => {
       rostersRef.current.style.setProperty("--total-rosters", totalRosters);
     }
     getRosterSize(props.leagueId);
-  }, [rosterSize, totalRosters]);
+  }, [props.leagueId, rosterSize, totalRosters]);
   
   if (props.order) {
     for (const [playerId, playerOrder] of Object.entries(props.order)) {
@@ -80,7 +80,7 @@ const DraftOrder = (props) => {
 };
 
 function isEven(n) {
-   return n % 2 == 0;
+   return n % 2 === 0;
 }
 
 DraftOrder.propTypes = {};

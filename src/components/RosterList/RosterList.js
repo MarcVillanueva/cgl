@@ -10,21 +10,21 @@ const RosterList = (props) => {
 
   useEffect(() => {
       async function getUsers(leagueId) {
-      const response = await fetch(`https://api.sleeper.app/v1/league/${params.leagueId}/users`);
+      const response = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/users`);
       const usersList = await response.json();
       setUsersList(usersList);
     }
-     getUsers();
-  }, [])
+     getUsers(params.leagueId);
+  }, [params.leagueId])
 
     useEffect(() => {
       async function getRosters(leagueId) {
-      const response = await fetch(`https://api.sleeper.app/v1/league/${params.leagueId}/rosters`);
+      const response = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/rosters`);
       const rostersList = await response.json();
       setRostersList(rostersList);
     }
-     getRosters();
-  }, [])
+     getRosters(params.leagueId);
+  }, [params.leagueId])
   
   return (
     <div >
@@ -63,7 +63,7 @@ const RosterList = (props) => {
   }
 
   function getRosterStyle(index, arrayLength) {
-    return (index + 1 == arrayLength ? "users-list-last" : "users-list");
+    return (index + 1 === arrayLength ? "users-list-last" : "users-list");
   }
 }
 

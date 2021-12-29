@@ -1,10 +1,11 @@
 import React, { useEffect, useState} from 'react'
 import styles from './PlayoffBracket.css'
-import Matchup from '../Matchup/Matchup'
+import PlayoffRound from '../PlayoffRound/PlayoffRound'
 
 const PlayoffBracket = (props) => {
   const [winnersBracket, setWinnersBracket] = useState(null);
   const [losersBracket, setLosersBracket] = useState(null);
+  const [playoffStartWeek, setPlayoffStartWeek] = useState(null);
 
   useEffect(() => {
     async function getWinnersBracket() {
@@ -24,13 +25,26 @@ const PlayoffBracket = (props) => {
   getLosersBracket();
   }, [props.leagueId])
 
-  console.log(winnersBracket)
-  console.log(losersBracket)
+  useEffect(() => {
+    async function getPlayoffStartWeek() {
+      const response = await fetch(`https://api.sleeper.app/v1/league/${props.leagueId}`)
+      const league = await response.json()
+      setPlayoffStartWeek(league.settings.playoff_week_start)
+  }
+  getPlayoffStartWeek();
+  }, [props.leagueId])
 
   return (
   <div className={styles.PlayoffBracket}>
-    <h1>Playoff Bracket</h1>
-    <Matchup></Matchup>
+    <h1>Winner's Bracket</h1>
+    {winnersBracket != null ? 
+      <div className="playoff-bracket">
+        <PlayoffRound playoffStartWeek={playoffStartWeek} playoffRound={1} matchup={winnersBracket.filter(matchup => matchup.r === 1)}></PlayoffRound>
+        <PlayoffRound playoffStartWeek={playoffStartWeek} playoffRound={2} matchup={winnersBracket.filter(matchup => matchup.r === 2)}></PlayoffRound>
+        <PlayoffRound playoffStartWeek={playoffStartWeek} playoffRound={3} matchup={winnersBracket.filter(matchup => matchup.r === 3).length > 0 ? winnersBracket.filter(matchup => matchup.r === 3) : null}></PlayoffRound>
+        <PlayoffRound playoffStartWeek={playoffStartWeek} playoffRound={4} matchup={winnersBracket.filter(matchup => matchup.r === 4).length > 0 ? winnersBracket.filter(matchup => matchup.r === 4) : null}></PlayoffRound>
+      </div>
+     : null}
   </div>
   )
 

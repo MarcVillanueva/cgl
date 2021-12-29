@@ -16,9 +16,9 @@ const LeagueInformationPage = (props) => {
 
   useEffect(() => {
     async function getLeagueName() {
-      const response = await fetch(`https://api.sleeper.app/v1/league/${params.leagueId}`);
-      const league = await response.json();
-      setLeagueName(league.name);
+      const response = await fetch(`https://api.sleeper.app/v1/league/${params.leagueId}`)
+      const league = await response.json()
+      setLeagueName(league.name)
       setLeagueAvatar(league.avatar)
   }
   getLeagueName();

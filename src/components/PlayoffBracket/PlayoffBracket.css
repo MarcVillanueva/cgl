@@ -1,2 +1,5 @@
-.PlayoffBracket {
+.playoff-bracket {
+  display: flex;
+  flex-direction: row;
+  flex: none;
 }

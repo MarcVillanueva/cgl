@@ -13,7 +13,7 @@ const League = (props) => (
     <div className="league">
       <label className="league-name">{props.name}</label>
       <img
-      src={props.avatar === null ? DefaultLogo : `https://sleepercdn.com/avatars/thumbs/${props.avatar}`}
+      src={props.avatar === null || props.avatar === "" ? DefaultLogo : `https://sleepercdn.com/avatars/thumbs/${props.avatar}`}
       alt="new"
       className="avatar"
       />
