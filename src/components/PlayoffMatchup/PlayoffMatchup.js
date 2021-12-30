@@ -6,8 +6,9 @@ const PlayoffMatchup = (props) => {
 
   useEffect(() => {
     async function getMatchup(leagueId, playoffStartWeek, playoffRounderNumber) {
-      if (leagueId && playoffStartWeek != 0) {
+      if (leagueId && (playoffStartWeek !== 0 && playoffStartWeek !== null)) {
         var playoffWeek = playoffStartWeek + (playoffRounderNumber - 1)
+        console.log("Showing matchups for week: " + playoffWeek)
         const response = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/matchups/${playoffWeek}`);
         const matchups = await response.json();
         const matchup = matchups.filter(matchup => matchup.roster_id === props.matchup.t1 || matchup.roster_id === props.matchup.t2) // TODO: Also need to filter by users in the roster
