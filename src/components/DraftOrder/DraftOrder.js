@@ -63,7 +63,7 @@ const DraftOrder = (props) => {
         )) : null}
       </div>
       <div ref={picksRef} className={`draft-picks`}>
-        {props.draftPicks != null && isEven(teamSize)? 
+        {props.draftPicks != null && isEven(teamSize) ? 
         props.draftPicks.map((pick) => (
               <Link
               to={{

@@ -37,7 +37,7 @@ class SearchBar extends React.Component {
               </div>
               {<div className="actions-section">
                 <img
-                  src={this.props.avatar === null || this.props.avatar === undefined? DefaultLogo : `https://sleepercdn.com/avatars/thumbs/${this.props.avatar}`}
+                  src={this.props.avatar === null || this.props.avatar === undefined || this.props.avatar === "" ? DefaultLogo : `https://sleepercdn.com/avatars/thumbs/${this.props.avatar}`}
                   alt="new"
                   className="avatar-searchbar"
                 />

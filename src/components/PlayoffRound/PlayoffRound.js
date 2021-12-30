@@ -10,7 +10,7 @@ const Matchup = (props) => {
       {props.matchup != null ? 
       props.matchup.map((matchup) => (
           <div className="playoff-round"> 
-            <PlayoffMatchup playoffStartWeek={props.playoffStartWeek} roundNumber={matchup.r} matchupId={matchup.m}></PlayoffMatchup>
+            <PlayoffMatchup leagueId={props.leagueId} playoffStartWeek={props.playoffStartWeek} roundNumber={matchup.r} matchup={matchup}></PlayoffMatchup>
           </div>
       )) : null}
     </div>

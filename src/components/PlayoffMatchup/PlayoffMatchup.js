@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import styles from './PlayoffMatchup.css'
+import './PlayoffMatchup.css'
 
 const PlayoffMatchup = (props) => {
   const [matchup, setMatchup] = useState(null);
 
   useEffect(() => {
     async function getMatchup(leagueId, playoffStartWeek, playoffRounderNumber) {
-      if (leagueId) {
+      if (leagueId && playoffStartWeek != 0) {
         var playoffWeek = playoffStartWeek + (playoffRounderNumber - 1)
         const response = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/matchups/${playoffWeek}`);
-        const matchup = await response.json();
+        const matchups = await response.json();
+        const matchup = matchups.filter(matchup => matchup.roster_id === props.matchup.t1 || matchup.roster_id === props.matchup.t2) // TODO: Also need to filter by users in the roster
         setMatchup(matchup);
       }
   }
@@ -18,9 +19,15 @@ const PlayoffMatchup = (props) => {
   }, [props.leagueId, props.playoffStartWeek, props.roundNumber])
 
   return (
-    <div className={styles.PlayoffMatchup}>
-      <label >{props.roundNumber}</label>
-      <label >{props.matchupId}</label>
+    <div>
+      {matchup != null ? 
+      matchup.map((user) => (
+        <div className="parent-roster-list"> 
+          <label>Roster: {user.roster_id}</label>
+          <br />
+          <label>{user.points}</label>
+        </div>
+      )) : null}
     </div>
   )
 };
