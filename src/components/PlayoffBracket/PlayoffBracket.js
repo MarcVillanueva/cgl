@@ -50,7 +50,7 @@ const PlayoffBracket = (props) => {
 };
 
 function getNonEliminatedMatchups(matchup, roundNumber) {
-  return matchup.r === roundNumber && (matchup.t1_from?.l === undefined || matchup.t2_from?.l === undefined)
+  return matchup.r === roundNumber && (matchup.t1_from?.l === undefined || matchup.t2_from?.l === undefined) && (matchup.p === 1 || matchup.p === undefined)
 }
 PlayoffBracket.propTypes = {};
 
