@@ -36,7 +36,7 @@ const PlayoffBracket = (props) => {
 
   return (
   <div className={styles.PlayoffBracket}>
-    <h1>Winner's Bracket</h1>
+    <h1 className="winners-bracket-header">Winner's Bracket</h1>
     {winnersBracket != null ? 
       <div className="playoff-bracket">
         <PlayoffRound leagueId={props.leagueId} playoffStartWeek={playoffStartWeek} playoffRound={1} matchup={winnersBracket.filter(matchup => getNonEliminatedMatchups(matchup, 1))}></PlayoffRound>

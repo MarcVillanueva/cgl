@@ -31,7 +31,7 @@ const LeagueInformationPage = (props) => {
         <div className="league-option-tabs">
           <LeagueOptions selectedOption={selectedOption} setSelected={setSelected}></LeagueOptions>
         </div>
-        <div className={selectedOption === "Draft" ? "league-option-panel-draft" : "league-option-panel"}>
+        <div className={selectedOption === "Draft" || selectedOption === "Results" ? "league-option-panel-rounded" : "league-option-panel"}>
           {selectedOption === "Rosters" ? <RosterList leagueId={params.leagueId}></RosterList> : null}
           {selectedOption === "Draft" ? <DraftChart leagueId={params.leagueId}></DraftChart> : null}
           {selectedOption === "Results" ? <PlayoffBracket leagueId={params.leagueId}></PlayoffBracket> : null}

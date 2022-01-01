@@ -1,11 +1,11 @@
 import React from 'react'
-import styles from './PlayoffRound.css'
+import './PlayoffRound.css'
 import PlayoffMatchup from '../PlayoffMatchup/PlayoffMatchup'
 const Matchup = (props) => {
   return (
-    <div className={styles.Matchup}>
+    <div className="playoff-rounds-panel">
       {props.matchup !== null ? 
-        <h2>Week {props.playoffStartWeek + (props.playoffRound - 1)}</h2> : null
+        <h2 className="playoff-week-header">Week {props.playoffStartWeek + (props.playoffRound - 1)}</h2> : null
       }
       {props.matchup != null ? 
       props.matchup.map((matchup) => (

@@ -1,1 +1,5 @@
-.PlayoffMatchup {}
+.matchup {
+  height: 160px;
+  width: 300px;
+  border: white 1px solid;
+}

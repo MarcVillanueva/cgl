@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react'
 import './PlayoffMatchup.css'
 
 const PlayoffMatchup = (props) => {
-  const [matchup, setMatchup] = useState(null);
+  const [matchupRosters, setMatchupRosters] = useState(null);
 
   // TODO: Add the bye weeks if this is the first round of playoffs
   useEffect(() => {
-    async function getMatchup(leagueId, playoffStartWeek, playoffRounderNumber) {
+    async function getMatchupRosters(leagueId, playoffStartWeek, playoffRounderNumber) {
       if (leagueId && (playoffStartWeek !== 0 && playoffStartWeek !== null)) {
         var playoffWeek = playoffStartWeek + (playoffRounderNumber - 1)
         const response = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/matchups/${playoffWeek}`);
@@ -14,21 +14,44 @@ const PlayoffMatchup = (props) => {
         const matchup = matchups.filter(matchup => 
                                           matchup.roster_id === props.matchup.t1 ||
                                           matchup.roster_id === props.matchup.t2)
-        setMatchup(matchup);
+
+        const rostersList = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/rosters`).
+                                  then(response => response.json()) 
+
+        const usersList = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/users`).
+                                  then(response => response.json()) 
+        var matchupRosters = []
+
+        if (matchup) {
+          matchup?.forEach(function(matchup) {
+            var ownerId = rostersList?.find(roster => roster.roster_id === matchup.roster_id).owner_id
+            matchupRosters.push(
+              {
+                RosterId: matchup.roster_id,
+                Points: matchup.points,
+                Username: usersList?.find(user => user.user_id === ownerId).display_name
+              }
+              )
+          }
+          )
+        }
+
+        setMatchupRosters(matchupRosters)
       }
   }
 
-  getMatchup(props.leagueId, props.playoffStartWeek, props.roundNumber);
+  getMatchupRosters(props.leagueId, props.playoffStartWeek, props.roundNumber);
   }, [props.leagueId, props.playoffStartWeek, props.roundNumber])
 
   return (
-    <div>
-      {matchup != null ? 
-      matchup.map((user) => (
-        <div className="parent-roster-list"> 
-          <label>Roster: {user.roster_id}</label>
+    <div className="matchup">
+      {matchupRosters != null ? 
+      matchupRosters.map((user) => (
+        <div > 
+          <label>{user.Username}</label>
           <br />
-          <label>{user.points}</label>
+          <label>{user.Points}</label>
+          <br />
         </div>
       )) : null}
     </div>
