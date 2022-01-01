@@ -3,7 +3,19 @@
 }
 
 .playoff-week-header {
-  text-align: center;
+  text-align: left;
   font-size: 18px;
   font-weight: bold;
+}
+
+.playoff-round {
+  margin-right: 200px;
+  margin-bottom: 50px;
+  justify-content: center;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
 }
