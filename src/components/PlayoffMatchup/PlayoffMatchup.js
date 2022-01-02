@@ -19,7 +19,7 @@ const PlayoffMatchup = (props) => {
                                   then(response => response.json()) 
 
         const usersList = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/users`).
-                                  then(response => response.json()) 
+                                then(response => response.json()) 
         var matchupRosters = []
 
         if (matchup) {

@@ -13,6 +13,7 @@
   display: inline-block;
   border-top: none;
   padding-right: 10px;
+  min-width: 825px;
 }
 
 .league-option-panel-rounded {

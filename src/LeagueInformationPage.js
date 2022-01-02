@@ -7,6 +7,7 @@ import DraftChart from './components/DraftChart/DraftChart'
 import './styles/LeagueInformationPage.css'
 import LeagueOptions from './components/LeagueOptions/LeagueOptions'
 import PlayoffBracket from './components/PlayoffBracket/PlayoffBracket'
+import Collusion from './components/Collusion/Collusion'
 
 const LeagueInformationPage = (props) => {
   var params = useParams();
@@ -35,6 +36,7 @@ const LeagueInformationPage = (props) => {
           {selectedOption === "Rosters" ? <RosterList leagueId={params.leagueId}></RosterList> : null}
           {selectedOption === "Draft" ? <DraftChart leagueId={params.leagueId}></DraftChart> : null}
           {selectedOption === "Results" ? <PlayoffBracket leagueId={params.leagueId}></PlayoffBracket> : null}
+          {selectedOption === "Collusion" ? <Collusion leagueId={params.leagueId}></Collusion> : null}
         </div>
         <br />
     </div>
