@@ -8,6 +8,7 @@ import './styles/LeagueInformationPage.css'
 import LeagueOptions from './components/LeagueOptions/LeagueOptions'
 import PlayoffBracket from './components/PlayoffBracket/PlayoffBracket'
 import Collusion from './components/Collusion/Collusion'
+import Weeklys from './components/Weeklys/Weeklys'
 
 const LeagueInformationPage = (props) => {
   var params = useParams();
@@ -37,6 +38,7 @@ const LeagueInformationPage = (props) => {
           {selectedOption === "Draft" ? <DraftChart leagueId={params.leagueId}></DraftChart> : null}
           {selectedOption === "Results" ? <PlayoffBracket leagueId={params.leagueId}></PlayoffBracket> : null}
           {selectedOption === "Collusion" ? <Collusion leagueId={params.leagueId}></Collusion> : null}
+          {selectedOption === "Weeklys" ? <Weeklys leagueId={params.leagueId}></Weeklys> : null}
         </div>
         <br />
     </div>
