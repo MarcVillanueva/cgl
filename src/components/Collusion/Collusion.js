@@ -22,6 +22,10 @@ const Collusion = (props) => {
 
   const [startWeek, setStartWeek] = useState(null);
   const [missingPositions, setMissingPositions] = useState(null);
+  const [usersList, setUsersList] = useState(null);
+
+  // TODO: Figure out how to get this maxWeekNumber without hardcoding here.
+  // - Maybe do playoff_start_week + max(playoff.r in playoffBrackets)
   const maxWeekNumber = 17
 
   useEffect(() => {
@@ -43,7 +47,7 @@ const Collusion = (props) => {
       const users = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/users`).
                                   then(response => response.json())
 
-      // This operation takes a very long time to complete. Figure out a way to improve the UI when this is executing...
+      // This operation takes a very long time to complete. Figure out a way to improve execution time
       // - Can we get the rosterList and userList as props from a component which already fetched it?
       for (var weekNumber = startWeek; weekNumber <= maxWeekNumber; weekNumber++) {
         const matchup = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/matchups/${weekNumber}`).
@@ -63,19 +67,23 @@ const Collusion = (props) => {
         })  
       }
 
-      setMissingPositions(newMissingPositions);
+      setMissingPositions(newMissingPositions)
+      setUsersList(users)
   }
   getMissingPositions(props.leagueId);
   }, [props.leagueId])
 
   return (
-    <div >
+    <div className="missing-starters">
+      {missingPositions !== null ? 
+      <div>
+        <h2 className="missing-starters-text">Missing starters</h2>
+      </div>
+       : null}
       {missingPositions !== null ? 
       missingPositions.map((matchup) => (
         <div > 
-          <label>Roster ID: {matchup.Username}</label>
-          <br />
-          <label>Weeknumber: {matchup.WeekNumber}</label>
+          <label>{matchup.Username} (Week {matchup.WeekNumber})</label>
           <br />
         </div>
       )) : <h1 className="collusion-loading-text">Checking for collusion...</h1>}
