@@ -78,7 +78,7 @@ const Collusion = (props) => {
           <label>Weeknumber: {matchup.WeekNumber}</label>
           <br />
         </div>
-      )) : null}
+      )) : <h1 className="collusion-loading-text">Checking for collusion...</h1>}
     </div>
   )
 };

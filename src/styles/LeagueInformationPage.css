@@ -30,6 +30,7 @@
   border: 2px solid #2f394a;
   display: inline-block;
   border-top: none;
+  min-width: 825px;
 }
 .league-option-tabs {
   padding-top: 10px;
