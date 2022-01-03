@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './Collusion.css';
+import OkIcon from '../../assets/ok-icon.png'
+import ViolationIcon from '../../assets/violation-icon.png'
 
 const Collusion = (props) => {
 // TODO: Fetch matchups in all weeks
@@ -130,7 +132,11 @@ const Collusion = (props) => {
       {violatorsList !== null ? 
         violatorsList.map((violator) => (
           <div className="violation-chart-child"> 
-            <label>{violator.HasViolation ? "VIOLATION" : "OK"}</label>
+            <img
+              src={violator.HasViolation ? ViolationIcon : OkIcon}
+              alt="new"
+              className="violation-status-image"
+            />
           </div>
         )) : null}
        </div>
