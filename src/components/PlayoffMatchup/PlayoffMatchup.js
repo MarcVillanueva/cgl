@@ -15,11 +15,11 @@ const PlayoffMatchup = (props) => {
                                           matchup.roster_id === props.matchup.t1 ||
                                           matchup.roster_id === props.matchup.t2)
 
-        const rostersList = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/rosters`).
-                                  then(response => response.json()) 
+        const rostersList = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/rosters`)
+                                  .then(response => response.json()) 
 
-        const usersList = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/users`).
-                                then(response => response.json()) 
+        const usersList = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/users`)
+                                .then(response => response.json()) 
         var matchupRosters = []
 
         if (matchup) {
@@ -41,7 +41,7 @@ const PlayoffMatchup = (props) => {
   }
 
   getMatchupRosters(props.leagueId, props.playoffStartWeek, props.roundNumber);
-  }, [props.leagueId, props.playoffStartWeek, props.roundNumber])
+  }, [props.leagueId, props.playoffStartWeek, props.roundNumber, props.matchup.t1, props.matchup.t2])
 
   return (
     <div className="matchup">

@@ -44,14 +44,15 @@ const Collusion = (props) => {
   async function getMissingPositions(leagueId) {
       const newMissingPositions = []
 
-      const rosters = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/rosters`).
-                                    then(response => response.json())        
+      const rosters = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/rosters`)
+                            .then(response => response.json())        
       
       // This operation takes a very long time to complete. Figure out a way to improve execution time
       // - Can we get the rosterList and userList as props from a component which already fetched it?
       for (var weekNumber = startWeek; weekNumber <= maxWeekNumber; weekNumber++) {
-        const matchup = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/matchups/${weekNumber}`).
-                              then(response => response.json())
+        
+        const matchup = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/matchups/${weekNumber}`)
+                              .then(response => response.json())
        
         const matchupsWithMissingPlayers = matchup?.filter(matchup => matchup.starters.includes("0"))
         
@@ -70,14 +71,13 @@ const Collusion = (props) => {
       setMissingPositions(newMissingPositions)
   }
   getMissingPositions(props.leagueId);
-  }, [props.leagueId])
+  }, [props.leagueId, startWeek, usersList])
 
   useEffect(() => {
   async function getUsersList(leagueId) {    
-      const users = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/users`).
-                                  then(response => response.json())
+      const users = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/users`)
+                         .then(response => response.json())
       setUsersList(users)
-      console.log("Setting grid-size to " + users.length)
       violationChartRef.current.style.setProperty("--grid-size", users.length);
   }
   getUsersList(props.leagueId);
@@ -89,12 +89,10 @@ const Collusion = (props) => {
 
       for (var currentWeek = 1; currentWeek <= maxWeekNumber; currentWeek++) {
           usersList?.forEach(function(user) {
-            console.log("Checking for team: " + user.display_name + " Week: " + currentWeek)
             if (missingPositions) {
-              console.log("Missing positions count: " + missingPositions.length)
               var match = missingPositions?.find(violator => violator.Username === user.display_name && violator.WeekNumber === currentWeek)
+
               var hasViolation = match !== undefined
-              console.log("Violation: " + hasViolation)
               // TODO: Also push Username, Week, just to be safe
               // Currently these will already be in the correct order but we should do some defensive programming here.
               violatorsList.push( {
@@ -109,9 +107,6 @@ const Collusion = (props) => {
   getViolatorsList(usersList, missingPositions);
   }, [usersList, missingPositions])
 
-  // console.log("Violators: " + violatorsList)
-  // console.log("Violators size: " + violatorsList?.length)
-
   return (
     <div className="test-class">
       <div className="collusion-team-names-parent">
@@ -123,11 +118,6 @@ const Collusion = (props) => {
       )) : <h1 className="collusion-loading-text">Checking for collusion...</h1>}
       </div>
     <div className="collusion-report-chart">
-      {/* {usersList !== null ? 
-      <div>
-        <h2 className="missing-starters-text">Missing starters</h2>
-      </div>
-       : null} */}
       <div className="week-list-column-parent">
       {weekList !== null ? 
         weekList.map((week, index) => (
@@ -148,33 +138,7 @@ const Collusion = (props) => {
       </div>
     </div>
     </div>
-
-
   )
-    //   {missingPositions !== null ? 
-    //   missingPositions.map((matchup) => (
-    //     <div > 
-    //       <label>{matchup.Username} (Week {matchup.WeekNumber})</label>
-    //       <br />
-    //     </div>
-    //   )) : <h1 className="collusion-loading-text">Checking for collusion...</h1>}
-    // </div>
-  // )
-    // <div className="missing-starters">
-    //   {missingPositions !== null ? 
-    //   <div>
-    //     <h2 className="missing-starters-text">Missing starters</h2>
-    //   </div>
-    //    : null}
-    //   {missingPositions !== null ? 
-    //   missingPositions.map((matchup) => (
-    //     <div > 
-    //       <label>{matchup.Username} (Week {matchup.WeekNumber})</label>
-    //       <br />
-    //     </div>
-    //   )) : <h1 className="collusion-loading-text">Checking for collusion...</h1>}
-    // </div>
-  // )
 };
 
 Collusion.propTypes = {};
