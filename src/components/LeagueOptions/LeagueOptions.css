@@ -34,7 +34,7 @@ label {
   cursor: pointer;
 }
 
-label {
+.option-button label {
   margin-left: auto;
   margin-right: auto;
   cursor: pointer;

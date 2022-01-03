@@ -23,6 +23,11 @@
   text-align: left;
   font-weight: bold;
 }
+.users-list label {
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
 
 .user-link {
   display: inline-block;
