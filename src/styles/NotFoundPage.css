@@ -7,13 +7,12 @@
 
 .not-found-label {
   color: white;
-  font-size: 28;
+  font-size: 22;
   margin-left: auto;
   margin-right: auto;
   font-family: "apple-system,BlinkMacSystemFont," Segoe UI
     ",Roboto,Helvetica,Arial,sans-serif";
   vertical-align: center;
-  padding-left: 50px;
 }
 
 @media screen and (max-width: 956px) {
