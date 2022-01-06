@@ -61,11 +61,29 @@
   border-right: white 1px solid;
 }
 
+.week-list-column-child-first {
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 50px;
+  border-right: white 1px solid;
+  border-top: white 1px solid;
+  border-bottom: white 1px solid;
+}
+
 .collusion-team-names-last {
   padding-left: 5px;
   padding-right: 5px;
   height: 35px;
   width: 175px;
+}
+
+.collusion-team-names-first {
+  padding-left: 5px;
+  padding-right: 5px;
+  height: 35px;
+  width: 175px;
+  border-right: white 1px solid;
+  border-left: white 1px solid;
 }
 
 .collusion-team-names {

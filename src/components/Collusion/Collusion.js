@@ -115,7 +115,7 @@ const Collusion = (props) => {
       <div className="collusion-team-names-parent">
       {usersList !== null ? 
       usersList.map((user, index) => (
-        <div className={index === usersList.length - 1 ? "collusion-team-names-last" : "collusion-team-names"}> 
+        <div className={index === usersList.length - 1 ? "collusion-team-names-last" : index === 0 ? "collusion-team-names-first" : "collusion-team-names"}> 
           <label>{user.display_name}</label>
         </div>
       )) : <h1 className="collusion-loading-text">Checking for collusion...</h1>}
@@ -124,7 +124,7 @@ const Collusion = (props) => {
       <div className="week-list-column-parent">
       {weekList !== null ? 
         weekList.map((week, index) => (
-          <div className={index === weekList.length - 1 ? "week-list-column-child-last" : "week-list-column-child"}> 
+          <div className={index === weekList.length - 1 ? "week-list-column-child-last" : index === 0 ? "week-list-column-child-first" : "week-list-column-child"}> 
             <label>{index + 1 }</label>
           </div>
         )) : null}                                                
