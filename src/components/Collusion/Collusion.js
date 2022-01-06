@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import './Collusion.css';
 import OkIcon from '../../assets/ok-icon.png'
 import ViolationIcon from '../../assets/violation-icon.png'
+import Tooltip from '.././Tooltip/Tooltip'
 
 const Collusion = (props) => {
 // TODO: Fetch matchups in all weeks
@@ -132,11 +133,7 @@ const Collusion = (props) => {
       {violatorsList !== null ? 
         violatorsList.map((violator) => (
           <div className="violation-chart-child"> 
-            <img
-              src={violator.HasViolation ? ViolationIcon : OkIcon}
-              alt="new"
-              className="violation-status-image"
-            />
+            {getViolationStatusIcon(violator.HasViolation)}
           </div>
         )) : null}
        </div>
@@ -147,6 +144,26 @@ const Collusion = (props) => {
   )
 };
 
+function getViolationStatusIcon(hasViolation) {
+  return (
+    <div>
+    {hasViolation ?     
+      <Tooltip content="Missing starters" direction="right">
+        <img
+          src={ViolationIcon}
+          alt="new"
+          className="violation-status-image"
+        />
+      </Tooltip> : 
+        <img
+          src={OkIcon}
+          alt="new"
+          className="violation-status-image"
+        />
+      }
+    </div>
+  )
+}
 Collusion.propTypes = {};
 
 Collusion.defaultProps = {};
