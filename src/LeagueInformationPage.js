@@ -40,7 +40,6 @@ const LeagueInformationPage = (props) => {
           {selectedOption === "Collusion" ? <Collusion leagueId={params.leagueId}></Collusion> : null}
           {selectedOption === "Weeklys" ? <Weeklys leagueId={params.leagueId}></Weeklys> : null}
         </div>
-        <br />
     </div>
   );
 }

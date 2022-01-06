@@ -45,6 +45,8 @@
 .league-information {
   margin-left: 10px;
   align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .players-list {
