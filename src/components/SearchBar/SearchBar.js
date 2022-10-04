@@ -3,7 +3,21 @@ import './SearchBar.css'
 import SearchIcon from '@material-ui/icons/Search'
 import { Link } from 'react-router-dom';
 import DefaultLogo from '../../assets/default_league_logo.png'
+import Select from 'react-select'
 
+const options = [
+  { value: '2014', label: '2014' },
+  { value: '2015', label: '2015' },
+  { value: '2016', label: '2016' },
+  { value: '2017', label: '2017' },
+  { value: '2018', label: '2018' },
+  { value: '2019', label: '2019' },
+  { value: '2020', label: '2020' },
+  { value: '2021', label: '2021' },
+  { value: '2022', label: '2022' }
+];
+
+const defaultOption = options[0];
 class SearchBar extends React.Component {
   constructor(props) {
     super(props); 
@@ -43,6 +57,7 @@ class SearchBar extends React.Component {
                 />
                 {username}
                 </div>}
+              <Select options={options} placeholder="Year"/>
             </div>
           </div>
         </div>
@@ -54,7 +69,6 @@ class SearchBar extends React.Component {
       username: event.target.value
     });
   }
-
 
   async handleSubmit() {
     if (this.state.username.trim() !== "") 
