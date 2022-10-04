@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import DefaultLogo from '../../assets/default_league_logo.png'
 import Select from 'react-select'
 
+{/* TODO: How to dynamically populate options. Minimum value:2014, Max value: current year */}
 const options = [
   { value: '2014', label: '2014' },
   { value: '2015', label: '2015' },
@@ -17,7 +18,19 @@ const options = [
   { value: '2022', label: '2022' }
 ];
 
-const defaultOption = options[0];
+const customStyles = {
+  option: provided => ({
+    ...provided,
+    color: 'black'
+  }),
+  control: provided => ({
+    ...provided,
+    color: 'black'
+  })
+}
+
+const defaultOption = options[options.length - 1].value;
+
 class SearchBar extends React.Component {
   constructor(props) {
     super(props); 
@@ -57,7 +70,8 @@ class SearchBar extends React.Component {
                 />
                 {username}
                 </div>}
-              <Select options={options} placeholder="Year"/>
+                {/* TODO: How to dynamically get the current year and assign placeholder */}
+              <Select options={options} placeholder={defaultOption} styles={customStyles}/> 
             </div>
           </div>
         </div>
